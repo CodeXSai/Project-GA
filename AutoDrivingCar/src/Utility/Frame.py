@@ -1,4 +1,3 @@
-import copy
 from tkinter import *
 from .AICanvas import AICanvas
 

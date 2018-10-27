@@ -1,3 +1,3 @@
-from .Frame import Frame
-from .Controller import Controller
-from .AICanvas import AICanvas
+from .Frame import *
+from .Controller import *
+from .AICanvas import *
