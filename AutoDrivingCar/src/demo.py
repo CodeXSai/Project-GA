@@ -1,26 +1,38 @@
 import tkinter as tk
+from PIL import ImageTk
+from PIL import Image
+
+class SimpleApp(object):
+    def __init__(self, master, filename, **kwargs):
+        self.master = master
+        self.filename = filename
+        self.canvas = tk.Canvas(master, width=500, height=500)
+        self.canvas.pack()
+
+        self.update = self.draw()
+        master.after(100, self.update)
+
+    def draw(self):
+        image = Image.open(self.filename)
+        angle = 0
+        count = 0
+        t = True
+        while t:
+            tkimage = ImageTk.PhotoImage(image.rotate(angle))
+            canvas_obj = self.canvas.create_image(
+                250, 250, image=tkimage)
+            self.master.after_idle(self.update)
+            yield
+            self.canvas.delete(canvas_obj)
+            angle += 10
+            angle %= 360
+            count+= count
+            if count is 20: count = False
+            print(count)
 
 root = tk.Tk()
-canvas = tk.Canvas(root, width=200, height=200, borderwidth=0, highlightthickness=0, bg="black")
-canvas.grid()
-
-#def _create_circle(self, x, y, r, **kwargs):
- #   return self.create_oval(x-r, y-r, x+r, y+r, **kwargs)
-#tk.Canvas.create_circle = _create_circle
-
-#def _create_circle_arc(self, x, y, r, **kwargs):
- #   if "start" in kwargs and "end" in kwargs:
-  #      kwargs["extent"] = kwargs["end"] - kwargs["start"]
-   #     del kwargs["end"]
-    #return self.create_arc(x-r, y-r, x+r, y+r, **kwargs)
-
-#tk.Canvas.create_circle_arc = _create_circle_arc
-
-#canvas.create_circle(100, 120, 50, fill="blue", outline="#DDD", width=4)
-#canvas.create_circle_arc(100, 120, 48, fill="green", outline="", start=45, end=140)
-#canvas.create_circle_arc(100, 120, 48, fill="green", outline="", start=275, end=305)
-#canvas.create_circle_arc(100, 120, 45, style="arc", outline="white", width=6, start=270-25, end=270+25)
-#canvas.create_circle(150, 40, 20, fill="#BBB", outline="")
-
-#root.wm_title("Circles and Arcs")
+app = SimpleApp(root, 'wcar.png')
 root.mainloop()
+#displayPlantImage = originalPlantImage.subsample(2, 2)
+#frame.canvas.create_image(500, 500, anchor=CENTER, image=displayPlantImage)
+#frame.frame_loop()

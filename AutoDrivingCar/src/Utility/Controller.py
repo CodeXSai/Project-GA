@@ -6,9 +6,11 @@ class Controller:
     _canvas = NONE
     _object1 = NONE
     _object2 = NONE
+    _object3 = NONE
+    _object4 = NONE
     _speed = 2
 
-    def __init__(self, set_root, set_canvas, set_object1, set_object2, set_speed):
+    def __init__(self, set_root, set_canvas, set_object1, set_object2, set_object3, set_object4, set_speed):
         global _root
         _root = set_root
 
@@ -21,6 +23,12 @@ class Controller:
         global _object2
         _object2 = set_object2
 
+        global _object3
+        _object3 = set_object3
+
+        global _object4
+        _object4 = set_object4
+
         global _speed
         _speed = set_speed
 
@@ -30,21 +38,29 @@ class Controller:
     def UP(zero):
         _canvas.move(_object1, 0, -1 * _speed)
         _canvas.move(_object2, 0, -1 * _speed)
+        _canvas.move(_object3, 0, -1 * _speed)
+        _canvas.move(_object4, 0, -1 * _speed)
 
     @staticmethod
     def DOWN(zero):
         _canvas.move(_object1, 0, 1 * _speed)
         _canvas.move(_object2, 0, 1 * _speed)
+        _canvas.move(_object3, 0, 1 * _speed)
+        _canvas.move(_object4, 0, 1 * _speed)
 
     @staticmethod
     def RIGHT(zero):
         _canvas.move(_object1, 1 * _speed, 0)
         _canvas.move(_object2, 1 * _speed, 0)
+        _canvas.move(_object3, 1 * _speed, 0)
+        _canvas.move(_object4, 1 * _speed, 0)
 
     @staticmethod
     def LEFT(zero):
         _canvas.move(_object1, -1 * _speed, 0)
         _canvas.move(_object2, -1 * _speed, 0)
+        _canvas.move(_object3, -1 * _speed, 0)
+        _canvas.move(_object4, -1 * _speed, 0)
 
     def key_binding(self):
         _root.bind("w", self.UP)

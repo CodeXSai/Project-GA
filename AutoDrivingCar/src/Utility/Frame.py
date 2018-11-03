@@ -47,3 +47,12 @@ class Frame:
 
     def frame_loop(self):
         self._root.mainloop()
+
+    def draw(self):
+        while True:
+            self._root.after_idle(self.update)
+            yield
+
+    def update(self):
+        self.update = self.draw().__next__
+        self._root.after(100, self.update)
