@@ -26,3 +26,27 @@
 +defaults::wheel-0.32.1-py37_0
 +defaults::wincertstore-0.2-py37_0
 # update specs: ['python']
+==> 2018-11-04 01:06:09 <==
+# cmd: E:\Softwares\Anaconda\Scripts\conda install -p E:/Projects/Project-GA/AutoDrivingCar/envs/AutoDrivingCar wheel==0.32.2 -y
+# conda version: 4.5.11
+-defaults::wheel-0.32.1-py37_0
++defaults::wheel-0.32.2-py37_0
+# update specs: ['wheel==0.32.2']
+==> 2018-11-04 01:06:23 <==
+# cmd: E:\Softwares\Anaconda\Scripts\conda install -p E:/Projects/Project-GA/AutoDrivingCar/envs/AutoDrivingCar setuptools==40.5.0 -y
+# conda version: 4.5.11
+-defaults::setuptools-40.4.3-py37_0
++defaults::setuptools-40.5.0-py37_0
+# update specs: ['setuptools==40.5.0']
+==> 2018-11-04 01:06:50 <==
+# cmd: E:\Softwares\Anaconda\Scripts\conda install -p E:/Projects/Project-GA/AutoDrivingCar/envs/AutoDrivingCar pip==18.1 -y
+# conda version: 4.5.11
+-defaults::pip-10.0.1-py37_0
++defaults::pip-18.1-py37_0
+# update specs: ['pip==18.1']
+==> 2018-11-04 01:08:54 <==
+# cmd: E:\Softwares\Anaconda\Scripts\conda install -p E:/Projects/Project-GA/AutoDrivingCar/envs/AutoDrivingCar python==3.7.1 -y
+# conda version: 4.5.11
+-defaults::python-3.7.0-hea74fb7_0
++defaults::python-3.7.1-h33f27b4_4
+# update specs: ['python==3.7.1']

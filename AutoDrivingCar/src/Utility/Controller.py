@@ -2,15 +2,9 @@ from tkinter import *
 
 
 class Controller:
-    _root = NONE
-    _canvas = NONE
-    _object1 = NONE
-    _object2 = NONE
-    _object3 = NONE
-    _object4 = NONE
-    _speed = 2
 
-    def __init__(self, set_root, set_canvas, set_object1, set_object2, set_object3, set_object4, set_speed):
+
+    def __init__(self, set_root, set_canvas, set_object1, set_object2, set_object3, set_object4, speed_limit):
         global _root
         _root = set_root
 
@@ -29,38 +23,47 @@ class Controller:
         global _object4
         _object4 = set_object4
 
-        global _speed
-        _speed = set_speed
+        global _speed_limit
+        _speed_limit = speed_limit
+
+        global _accelerate
+        _accelerate = 0
 
         self.key_binding()
 
     @staticmethod
     def UP(zero):
-        _canvas.move(_object1, 0, -1 * _speed)
-        _canvas.move(_object2, 0, -1 * _speed)
-        _canvas.move(_object3, 0, -1 * _speed)
-        _canvas.move(_object4, 0, -1 * _speed)
+        _canvas.move(_object1, 0, -1 * _speed_limit)
+        _canvas.move(_object2, 0, -1 * _speed_limit)
+        _canvas.move(_object3, 0, -1 * _speed_limit)
+        _canvas.move(_object4, 0, -1 * _speed_limit)
 
     @staticmethod
     def DOWN(zero):
-        _canvas.move(_object1, 0, 1 * _speed)
-        _canvas.move(_object2, 0, 1 * _speed)
-        _canvas.move(_object3, 0, 1 * _speed)
-        _canvas.move(_object4, 0, 1 * _speed)
+        _canvas.move(_object1, 0, 1 * _speed_limit)
+        _canvas.move(_object2, 0, 1 * _speed_limit)
+        _canvas.move(_object3, 0, 1 * _speed_limit)
+        _canvas.move(_object4, 0, 1 * _speed_limit)
 
     @staticmethod
     def RIGHT(zero):
-        _canvas.move(_object1, 1 * _speed, 0)
-        _canvas.move(_object2, 1 * _speed, 0)
-        _canvas.move(_object3, 1 * _speed, 0)
-        _canvas.move(_object4, 1 * _speed, 0)
+        global _accelerate
+        _canvas.move(_object1,  _accelerate, 0)
+        _canvas.move(_object2,  _accelerate, 0)
+        _canvas.move(_object3,  _accelerate, 0)
+        _canvas.move(_object4,  _accelerate, 0)
+        if _accelerate < _speed_limit:
+            _accelerate += .5
 
     @staticmethod
     def LEFT(zero):
-        _canvas.move(_object1, -1 * _speed, 0)
-        _canvas.move(_object2, -1 * _speed, 0)
-        _canvas.move(_object3, -1 * _speed, 0)
-        _canvas.move(_object4, -1 * _speed, 0)
+        global _accelerate
+        _canvas.move(_object1,  _accelerate, 0)
+        _canvas.move(_object2,  _accelerate, 0)
+        _canvas.move(_object3,  _accelerate, 0)
+        _canvas.move(_object4,  _accelerate, 0)
+        if _accelerate > 0:
+            _accelerate -= .5
 
     def key_binding(self):
         _root.bind("w", self.UP)
@@ -74,10 +77,11 @@ class Controller:
 
     @staticmethod
     def get_speed():
-        global _speed
-        return _speed
+        global _speed_limit
+        return _speed_limit
 
     @staticmethod
-    def set_speed(set_speed):
-        global _speed
-        _speed = set_speed
+    def set_speed(speed_limit):
+        global _speed_limit
+        _speed_limit = speed_limit
+

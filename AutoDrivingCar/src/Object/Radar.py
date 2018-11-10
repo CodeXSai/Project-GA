@@ -1,14 +1,15 @@
 class Radar:
-    _radius = None
-    _aicanvas = None
-    _posX = None
-    _posY = None
 
     def __init__(self, radius, aicanvas, posX, posY):
         self._radius = radius
         self._aicanvas = aicanvas
         self._posX = posX
         self._posY = posY
+        self.circle = None
+        self.arc = None
+
+    def radar(self):
+        return self.arc
 
     @property
     def radius(self):
@@ -47,15 +48,17 @@ class Radar:
         del self._posY
 
     def create_circle(self, **kwargs):
-        return self._aicanvas.create_oval(self._posX - self._radius, self._posY - self._radius,
+        self.circle = self._aicanvas.create_oval(self._posX - self._radius, self._posY - self._radius,
                                           self._posX + self._radius, self._posY + self._radius, **kwargs)
+        return self.circle
 
     def create_arc(self, **kwargs):
         if "start" in kwargs and "end" in kwargs:
             kwargs["extent"] = kwargs["end"] - kwargs["start"]
             del kwargs["end"]
-        return self._aicanvas.create_arc(self._posX - self._radius, self._posY - self._radius,
+        self.arc = self._aicanvas.create_arc(self._posX - self._radius, self._posY - self._radius,
                                          self._posX + self._radius, self._posY + self._radius, **kwargs)
+        return self.arc
 
 # How to create circle
     #Radar.create_circle(100, 120, 50, fill="blue", outline="#DDD", width=4)

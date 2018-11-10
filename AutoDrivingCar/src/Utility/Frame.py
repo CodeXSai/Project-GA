@@ -3,8 +3,6 @@ from .AICanvas import AICanvas
 
 
 class Frame:
-    _root = NONE
-    _canvas = NONE
 
     def __init__(self, set_root=None, set_canvas=None):
         if set_root is None:
@@ -47,12 +45,3 @@ class Frame:
 
     def frame_loop(self):
         self._root.mainloop()
-
-    def draw(self):
-        while True:
-            self._root.after_idle(self.update)
-            yield
-
-    def update(self):
-        self.update = self.draw().__next__
-        self._root.after(100, self.update)

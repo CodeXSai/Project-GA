@@ -2,8 +2,7 @@ from tkinter import *
 
 
 class AICanvas:
-    _canvas = NONE
-    _root = NONE
+
 
     def __init__(self, root=None, canvas=None):
         if root is not None:

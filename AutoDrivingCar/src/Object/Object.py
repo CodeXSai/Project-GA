@@ -1,3 +1,5 @@
+from more_itertools import flatten
+
 from .Radar import Radar
 from Utility.Controller import Controller
 from .Enum import *
@@ -6,58 +8,52 @@ import itertools as IT
 
 class Object:
 
-    _speed = None
-    _controller = None
-    _radar1 = None
-    _radar2 = None
-    _radar3 = None
-    _type = None
-    _CenterX = None
-    _CenterY = None
-    _Shape = None
-    _Points = None
-    _frame = None
-
-    def __init__(self, speed, radius, aicanvas, frame, ObjType, ObjPosX, ObjPosY, ObjLength, ObjWidth, SquareColour,
-                 RadarColour,ratio=None, controller=None):
-        self._speed = speed
+    def __init__(self, dna, aicanvas, frame, ObjType, ObjPosX, ObjPosY, ObjLength, ObjWidth, SquareColour, controller=None):
+        self._speed_limit = dna.speed_limit
         self._frame = frame
         self._type = ObjType
+        self._coordinates = ObjPosY
+        self._accelerate = 0
 
-        if ratio is None:
+        self._radar1 = None
+        self._radar2 = None
+        self._radar3 = None
+        if dna.ratio is None:
             self._ratio = (0,0,0)
         else:
-            self._ratio = ratio
+            self._ratio = dna.ratio
 
         self._Points = [(ObjPosX, ObjPosY), (ObjPosX + ObjLength, ObjPosY), (ObjPosX + ObjLength, ObjPosY + ObjWidth), (ObjPosX, ObjPosY + ObjWidth)]
 
-        self.get_center(self._Points)
-        self.init_radar(radius, radius * .6, radius * .4, aicanvas, "yellow", "green", "red")
+        self.centroid(self._Points)
+        self.init_radar(dna.radius*dna.ratio[0], dna.radius *dna.ratio[1], dna.radius *dna.ratio[2], aicanvas, "yellow", "green", "red")
         self._Shape = aicanvas.create_polygon(self._Points, fill=SquareColour)
 
+
         if controller is None:
-            self._controller = Controller(frame.root, frame.canvas, self._Shape, self._radar1, self._radar2, self._radar3, self.speed)
+            self._controller = Controller(frame.root, frame.canvas, self._Shape, self._radar1, self._radar2, self._radar3, self.speed_limit)
         else:
             self._controller = controller
+        self.object_coords()
 
     def init_radar(self, radius1, radius2, radius3, aicanvas, colour1, colour2, colour3):
         start_angle = 349
         end_angle = 373
-        self._radar1 = Radar(radius1, aicanvas, self._CenterX, self._CenterY).create_arc(fill=colour1, start=start_angle, end=end_angle)
-        self._radar2 = Radar(radius2, aicanvas, self._CenterX, self._CenterY).create_arc(fill=colour2, start=start_angle, end=end_angle)
-        self._radar3 = Radar(radius3, aicanvas, self._CenterX, self._CenterY).create_arc(fill=colour3, start=start_angle, end=end_angle)
+        #self._radar1 = Radar(radius1, aicanvas, self._CenterX, self._CenterY).create_arc(fill=colour1, start=start_angle, end=end_angle)
+        #self._radar2 = Radar(radius2, aicanvas, self._CenterX, self._CenterY).create_arc(fill=colour2, start=start_angle, end=end_angle)
+        #self._radar3 = Radar(radius3, aicanvas, self._CenterX, self._CenterY).create_arc(fill=colour3, start=start_angle, end=end_angle)
 
     @property
-    def speed(self):
-        return self._speed
+    def speed_limit(self):
+        return self._speed_limit
 
-    @speed.setter
-    def speed(self, set_speed):
-        self._speed = set_speed
+    @speed_limit.setter
+    def speed_limit(self, set_speed):
+        self._speed_limit = set_speed
 
-    @speed.deleter
-    def speed(self):
-        del self._speed
+    @speed_limit.deleter
+    def speed_limit(self):
+        del self._speed_limit
 
     @property
     def controller(self):
@@ -72,16 +68,8 @@ class Object:
         del self._controller
 
     @property
-    def radar(self):
-        return self._radar
-
-    @radar.setter
-    def radar(self, set_radar):
-        self._radar = set_radar
-
-    @radar.deleter
-    def radar(self):
-        del self._radar
+    def coordinates(self):
+        return self._coordinates
 
     @staticmethod
     def area_of_polygon(x, y):
@@ -94,7 +82,7 @@ class Object:
             area += x[i] * (y[i + 1] - y[i - 1])
         return area / 2.0
 
-    def get_center(self, points):
+    def centroid(self, points):
         if self._type is Type.CAR:
             """
              http://stackoverflow.com/a/14115494/190597 (mgamba)
@@ -117,3 +105,27 @@ class Object:
             self._CenterX = result_x
             self._CenterY = result_y
 
+    def changeCoords(self):
+        self._frame.canvas.coords(self._Shape,  self._Shape_coords)
+        #self._frame.canvas.coords(self._radar1, self._radar1_coords)
+        #self._frame.canvas.coords(self._radar2, self._radar2_coords)
+        #self._frame.canvas.coords(self._radar3, self._radar3_coords)
+
+    def border_check(self):
+        return self._frame.canvas.coords(self._Shape)[0] > self._frame.root.winfo_screenwidth()
+
+    def move(self):
+        self._frame.canvas.move(self._Shape,  self._accelerate, 0)
+        #self._frame.canvas.move(self._radar1, self._accelerate, 0)
+        #self._frame.canvas.move(self._radar2, self._accelerate, 0)
+        #self._frame.canvas.move(self._radar3, self._accelerate, 0)
+        if self._accelerate < self._speed_limit:
+            self._accelerate += .1
+        if self.border_check():
+            self.changeCoords()
+
+    def object_coords(self):
+        self._Shape_coords  = self._frame.canvas.coords(self._Shape)
+        #self._radar1_coords = self._frame.canvas.coords(self._radar1)
+        #self._radar2_coords = self._frame.canvas.coords(self._radar2)
+        #self._radar3_coords = self._frame.canvas.coords(self._radar3)

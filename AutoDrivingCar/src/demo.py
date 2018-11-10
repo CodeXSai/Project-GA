@@ -9,15 +9,13 @@ class SimpleApp(object):
         self.canvas = tk.Canvas(master, width=500, height=500)
         self.canvas.pack()
 
-        self.update = self.draw()
+        self.update = self.draw().__next__
         master.after(100, self.update)
 
     def draw(self):
         image = Image.open(self.filename)
         angle = 0
-        count = 0
-        t = True
-        while t:
+        while True:
             tkimage = ImageTk.PhotoImage(image.rotate(angle))
             canvas_obj = self.canvas.create_image(
                 250, 250, image=tkimage)
@@ -26,9 +24,6 @@ class SimpleApp(object):
             self.canvas.delete(canvas_obj)
             angle += 10
             angle %= 360
-            count+= count
-            if count is 20: count = False
-            print(count)
 
 root = tk.Tk()
 app = SimpleApp(root, 'wcar.png')
