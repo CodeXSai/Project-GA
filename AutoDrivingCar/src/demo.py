@@ -1,33 +1,17 @@
-import tkinter as tk
-from PIL import ImageTk
-from PIL import Image
+from random import randint
+from Utility.Frame import Frame
+from Operational_Logic.DNA import DNA
+from Operational_Logic.Population import Population
+from Object.Object import Object
+from Object.Enum import *
 
-class SimpleApp(object):
-    def __init__(self, master, filename, **kwargs):
-        self.master = master
-        self.filename = filename
-        self.canvas = tk.Canvas(master, width=500, height=500)
-        self.canvas.pack()
 
-        self.update = self.draw().__next__
-        master.after(100, self.update)
-
-    def draw(self):
-        image = Image.open(self.filename)
-        angle = 0
-        while True:
-            tkimage = ImageTk.PhotoImage(image.rotate(angle))
-            canvas_obj = self.canvas.create_image(
-                250, 250, image=tkimage)
-            self.master.after_idle(self.update)
-            yield
-            self.canvas.delete(canvas_obj)
-            angle += 10
-            angle %= 360
-
-root = tk.Tk()
-app = SimpleApp(root, 'wcar.png')
-root.mainloop()
-#displayPlantImage = originalPlantImage.subsample(2, 2)
-#frame.canvas.create_image(500, 500, anchor=CENTER, image=displayPlantImage)
-#frame.frame_loop()
+if __name__ == '__main__':
+        frame = Frame()
+        frame.init_frame("fullscreen", "main")
+        point = [196.35100000000037, 55.0, 251.3510000000003, 55.0, 251.3510000000003, 72.5, 196.35100000000037, 72.5]
+        point1 = [326.13000000000034, 55.0, 381.13000000000034, 55.0, 381.13000000000034, 72.5, 326.13000000000034, 72.5]
+        point
+        frame.canvas.create_polygon(point, fill="white")
+        frame.canvas.create_polygon(point1, fill="white")
+        frame.frame_loop()

@@ -9,16 +9,64 @@ from Object.Enum import *
 class Blueprint:
 
     def __init__(self):
-        self._population = Population(50,1).init_population()
-        self.count = 100
+        self._population = Population(200,1).init_population()
+        self.count = 50
         self._frame = Frame()
         self._frame.init_frame("fullscreen", "main")
-        self.init_blueprint()
+        #self.init_blueprint_test()
+        self.init_road()
         self.update()
         self._frame.frame_loop()
 
-    def init_blueprint(self):
-        self.init_road()
+    def init_blueprint_test(self):
+        l=[]
+        dna = DNA(20, 150, (1, 0.5, 0.35))
+        car = Object(dna, self._frame.canvas, self._frame, Type.CAR, 50,
+                          self.Yaxis(self.car_coordinates_list()[0][0], self.car_coordinates_list()[0][1]), 55, 17.5,
+                          "white")
+
+
+
+        dna = DNA(20, 150, (1, 0.5, 0.35))
+        car1 = Object(dna, self._frame.canvas, self._frame, Type.CAR, 500,
+                          self.Yaxis(self.car_coordinates_list()[0][0], self.car_coordinates_list()[0][1]), 55, 17.5,
+                          "white")
+        l.insert(len(l), car.front_back())
+        l.insert(len(l), car1.front_back())
+        print(car1.front_back())
+
+        print([l[0][0][0], l[0][0][1], l[1][1][0], l[1][1][1]])
+        self._frame.canvas.create_line(l[0][0][0], l[0][0][1], l[1][1][0], l[1][1][1], fill="green")
+
+        '''
+        car = Object(5, 150, self._frame.canvas, self._frame, Type.CAR, 0,
+                     self.Yaxis(self.car_coordinates_list()[1][0], self.car_coordinates_list()[1][1]), 55, 17.5,
+                     "white")
+        car = Object(5, 150, self._frame.canvas, self._frame, Type.CAR, 0,
+                     self.Yaxis(self.car_coordinates_list()[2][0], self.car_coordinates_list()[2][1]), 55, 17.5,
+                     "white")
+
+        car = Object(5, 150, self._frame.canvas, self._frame, Type.CAR, 0,
+                     self.Yaxis(self.car_coordinates_list()[3][0], self.car_coordinates_list()[3][1]), 55, 17.5,
+                     "white")
+        car = Object(5, 150, self._frame.canvas, self._frame, Type.CAR, 0,
+                     self.Yaxis(self.car_coordinates_list()[4][0], self.car_coordinates_list()[4][1]), 55, 17.5,
+                     "white")
+        car = Object(5, 150, self._frame.canvas, self._frame, Type.CAR, 0,
+                     self.Yaxis(self.car_coordinates_list()[5][0], self.car_coordinates_list()[5][1]), 55, 17.5,
+                     "white")
+
+        car = Object(5, 150, self._frame.canvas, self._frame, Type.CAR, 0,
+                     self.Yaxis(self.car_coordinates_list()[6][0], self.car_coordinates_list()[6][1]), 55, 17.5,
+                     "white")
+        car = Object(5, 150, self._frame.canvas, self._frame, Type.CAR, 0,
+                     self.Yaxis(self.car_coordinates_list()[7][0], self.car_coordinates_list()[7][1]), 55, 17.5,
+                     "white")
+        car = Object(5, 150, self._frame.canvas, self._frame, Type.CAR, -210,
+                     self.Yaxis(self.car_coordinates_list()[8][0], self.car_coordinates_list()[8][1]), 55, 17.5,
+                     "white")
+        '''
+
 
 
     def init_road(self):
@@ -64,18 +112,17 @@ class Blueprint:
         return [(35, 92.5), (97.5, 152.5), (157.5, 215), (265, 322.5), (327.5, 382.5), (387.5, 445), (495, 552.5), (557.5, 612.5), (617.5, 675)]
 
     def create_obj(self, obj):
-        if self.count == 100 and len(obj) < len(self._population):
+        if self.count == 50 and len(obj) < len(self._population):
             y = randint(0, 8)
-            obj.append(Object(self._population[len(obj)], self._frame.canvas, self._frame, Type.CAR, -210,
+            obj.insert( len(obj), Object(self._population[len(obj)], self._frame, Type.CAR, -210,
                               self.Yaxis(self.car_coordinates_list()[y][0], self.car_coordinates_list()[y][1]), 55,
-                              17.5,
-                              "white"))
+                              17.5, "white", len(obj)))
             self.count = 0
         return obj
 
     def move(self, objects):
         for i in range(len(objects)):
-            objects[i].move()
+            objects[i].move(objects)
 
     def draw(self):
         obj = []
@@ -88,4 +135,4 @@ class Blueprint:
 
     def update(self):
         self.update = self.draw().__next__
-        self._frame._root.after(1, self.update)
+        self._frame._root.after(1000, self.update)

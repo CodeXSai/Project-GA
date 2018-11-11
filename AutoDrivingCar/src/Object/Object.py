@@ -1,47 +1,30 @@
-from more_itertools import flatten
-
-from .Radar import Radar
-from Utility.Controller import Controller
 from .Enum import *
 import itertools as IT
 
 
 class Object:
 
-    def __init__(self, dna, aicanvas, frame, ObjType, ObjPosX, ObjPosY, ObjLength, ObjWidth, SquareColour, controller=None):
+    def __init__(self, dna, frame, ObjType, ObjPosX, ObjPosY, ObjLength, ObjWidth, SquareColour, index):
+        self.col_line = None
         self._speed_limit = dna.speed_limit
         self._frame = frame
         self._type = ObjType
         self._coordinates = ObjPosY
         self._accelerate = 0
+        self._dna = dna
+        self._index = index
+        self._dirFlag = 1
 
-        self._radar1 = None
-        self._radar2 = None
-        self._radar3 = None
         if dna.ratio is None:
             self._ratio = (0,0,0)
         else:
             self._ratio = dna.ratio
 
         self._Points = [(ObjPosX, ObjPosY), (ObjPosX + ObjLength, ObjPosY), (ObjPosX + ObjLength, ObjPosY + ObjWidth), (ObjPosX, ObjPosY + ObjWidth)]
-
-        self.centroid(self._Points)
-        self.init_radar(dna.radius*dna.ratio[0], dna.radius *dna.ratio[1], dna.radius *dna.ratio[2], aicanvas, "yellow", "green", "red")
-        self._Shape = aicanvas.create_polygon(self._Points, fill=SquareColour)
-
-
-        if controller is None:
-            self._controller = Controller(frame.root, frame.canvas, self._Shape, self._radar1, self._radar2, self._radar3, self.speed_limit)
-        else:
-            self._controller = controller
+        #self.centroid(self._Points)
+        #self.init_radar(dna.radius*dna.ratio[0], dna.radius *dna.ratio[1], dna.radius *dna.ratio[2], aicanvas, "yellow", "green", "red")
+        self._Shape = self._frame.canvas.create_polygon(self._Points, fill=SquareColour)
         self.object_coords()
-
-    def init_radar(self, radius1, radius2, radius3, aicanvas, colour1, colour2, colour3):
-        start_angle = 349
-        end_angle = 373
-        #self._radar1 = Radar(radius1, aicanvas, self._CenterX, self._CenterY).create_arc(fill=colour1, start=start_angle, end=end_angle)
-        #self._radar2 = Radar(radius2, aicanvas, self._CenterX, self._CenterY).create_arc(fill=colour2, start=start_angle, end=end_angle)
-        #self._radar3 = Radar(radius3, aicanvas, self._CenterX, self._CenterY).create_arc(fill=colour3, start=start_angle, end=end_angle)
 
     @property
     def speed_limit(self):
@@ -50,6 +33,11 @@ class Object:
     @speed_limit.setter
     def speed_limit(self, set_speed):
         self._speed_limit = set_speed
+
+    @property
+    def index(self):
+        return self._index
+
 
     @speed_limit.deleter
     def speed_limit(self):
@@ -67,9 +55,14 @@ class Object:
     def controller(self):
         del self._controller
 
-    @property
+    def front_back(self):
+        minX = self._frame.canvas.coords(self._Shape)[0]
+        maxX = self._frame.canvas.coords(self._Shape)[2]
+        y = self.centroid()
+        return [(maxX, y[1]), (minX, y[1])]
+
     def coordinates(self):
-        return self._coordinates
+        return self._frame.canvas.coords(self._Shape)
 
     @staticmethod
     def area_of_polygon(x, y):
@@ -82,7 +75,13 @@ class Object:
             area += x[i] * (y[i + 1] - y[i - 1])
         return area / 2.0
 
-    def centroid(self, points):
+    def centroid(self, Points=None):
+
+        if Points is None:
+            Points = self._frame.canvas.coords(self._Shape)
+
+        points = [(Points[0], Points[1]), (Points[2], Points[3]), (Points[4], Points[5]), (Points[6], Points[7])]
+
         if self._type is Type.CAR:
             """
              http://stackoverflow.com/a/14115494/190597 (mgamba)
@@ -104,28 +103,108 @@ class Object:
 
             self._CenterX = result_x
             self._CenterY = result_y
+            return (result_x, result_y)
 
     def changeCoords(self):
         self._frame.canvas.coords(self._Shape,  self._Shape_coords)
-        #self._frame.canvas.coords(self._radar1, self._radar1_coords)
-        #self._frame.canvas.coords(self._radar2, self._radar2_coords)
-        #self._frame.canvas.coords(self._radar3, self._radar3_coords)
 
     def border_check(self):
         return self._frame.canvas.coords(self._Shape)[0] > self._frame.root.winfo_screenwidth()
 
-    def move(self):
-        self._frame.canvas.move(self._Shape,  self._accelerate, 0)
-        #self._frame.canvas.move(self._radar1, self._accelerate, 0)
-        #self._frame.canvas.move(self._radar2, self._accelerate, 0)
-        #self._frame.canvas.move(self._radar3, self._accelerate, 0)
-        if self._accelerate < self._speed_limit:
-            self._accelerate += .1
+    def move(self, obj):
+        speed_strike = .002
+        colour = self.complex_move(obj)
+
+        if colour is "green":
+            if self._dirFlag == 0:
+                if self._accelerate > 0:
+                    self._accelerate -= speed_strike
+            else:
+                if self._accelerate < self._speed_limit:
+                    self._accelerate += speed_strike
+        elif colour is "red":
+            self._dirFlag = 0
+            if self._accelerate > 0:
+                self._accelerate -= speed_strike
+        else:
+            self._dirFlag = 1
+            if self._accelerate < self._speed_limit:
+                self._accelerate += speed_strike
+        self._frame.canvas.move(self._Shape, self._accelerate, 0)
         if self.border_check():
             self.changeCoords()
 
     def object_coords(self):
         self._Shape_coords  = self._frame.canvas.coords(self._Shape)
-        #self._radar1_coords = self._frame.canvas.coords(self._radar1)
-        #self._radar2_coords = self._frame.canvas.coords(self._radar2)
-        #self._radar3_coords = self._frame.canvas.coords(self._radar3)
+
+    def complex_move(self, obj):
+        col_obj = None
+        col_dist = 1000000000
+        colour = "white"
+        l = []
+
+        if self.col_line is not None:
+            self._frame.canvas.delete(self.col_line)
+            self._frame.canvas.itemconfig(self._Shape, fill="white")
+            col_obj = None
+            col_dist = 1000000000
+            self.col_line = None
+
+        if len(obj) > 1:
+            for i in range(len(obj)):
+                if obj[i].index != self.index:
+                    xy = self.centroid()
+                    obj_xy = obj[i].centroid()
+
+                    if xy[1] == obj_xy[1]:
+                        self._frame.canvas.itemconfig(self._Shape, fill="white")
+                        if ((self._dna.radius * self._dna.ratio[0]) + xy[0]) >= obj[i].front_back()[1][0] \
+                                and (self._dna.radius * self._dna.ratio[1] + xy[0]) < obj[i].front_back()[1][0] \
+                                and self.front_back()[0][0] < obj[i].front_back()[1][0]:
+                            if col_dist > (obj[i].front_back()[1][0] - self.front_back()[0][0]):
+                                col_dist = (obj[i].front_back()[1][0] - self.front_back()[0][0])
+                                col_obj = obj[i]
+                            colour = "yellow"
+                            self._frame.canvas.itemconfig(self._Shape, fill="white")
+
+                        elif (self._dna.radius * self._dna.ratio[1] + xy[0]) >= obj[i].front_back()[1][0] \
+                                and (self._dna.radius * self._dna.ratio[2] + xy[0]) < obj[i].front_back()[1][0] \
+                                and self.front_back()[0][0] < obj[i].front_back()[1][0]:
+                            if col_dist > (obj[i].front_back()[1][0] - self.front_back()[0][0]):
+                                col_dist = (obj[i].front_back()[1][0] - self.front_back()[0][0])
+                                col_obj = obj[i]
+                            colour = "green"
+                            self._frame.canvas.itemconfig(self._Shape, fill="white")
+
+                        elif (self._dna.radius * self._dna.ratio[2] + xy[0]) >= obj[i].front_back()[1][0] \
+                                and self.front_back()[0][0] < obj[i].front_back()[1][0]:
+                            if col_dist > (obj[i].front_back()[1][0] - self.front_back()[0][0]):
+                                col_dist = (obj[i].front_back()[1][0] - self.front_back()[0][0])
+                                col_obj = obj[i]
+                            colour = "red"
+                            self._frame.canvas.itemconfig(self._Shape, fill="white")
+
+                        elif self.front_back()[0][0] >= obj[i].front_back()[1][0] \
+                                and self.front_back()[1][0] <= obj[i].front_back()[1][0]:
+                            colour = "blue"
+                            self._frame.canvas.itemconfig(self._Shape, fill="blue")
+                            col_dist = 1000000000
+                            self._frame.canvas.delete(self.col_line)
+                            col_obj = None
+                            self.col_line = None
+
+                        else:
+                            col_dist = 1000000000
+                            if self.col_line is not None:
+                                self._frame.canvas.delete(self.col_line)
+                                self._frame.canvas.itemconfig(self._Shape, fill="white")
+                                col_obj = None
+                                self.col_line = None
+
+            if col_dist != 1000000000:
+                l.insert(len(l), self.front_back())
+                l.insert(len(l), col_obj.front_back())
+                self.col_line = self._frame.canvas.create_line(l[0][0][0], l[0][0][1], l[1][1][0], l[1][1][1],
+                                                               fill=colour)
+
+        return colour
