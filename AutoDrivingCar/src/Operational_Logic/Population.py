@@ -11,6 +11,14 @@ class Population:
         self._mutation_rate = mutation_rate
         self._populationNo = populationNo
 
+    @property
+    def population(self):
+        return self._populationNo
+
+    @property
+    def mutation_rate(self):
+        return self._mutation_rate
+
     def Calc_Fitness(self):
         print("")
 
@@ -37,6 +45,7 @@ class Population:
 
     def init_population(self):
         for i in range(self._populationNo):
+            #self._population.append(DNA(randint(5, 10), randint(100, 200), self.init_ratio()))
             self._population.append(DNA(randint(5, 10), randint(100, 200), self.init_ratio()))
         return self._population
 

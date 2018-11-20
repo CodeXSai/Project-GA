@@ -1,10 +1,14 @@
+import datetime
+
 from .Enum import *
+from Tools.fileio import fileio
 import itertools as IT
+import copy
 
 
 class Object:
 
-    def __init__(self, dna, frame, ObjType, ObjPosX, ObjPosY, ObjLength, ObjWidth, SquareColour, index):
+    def __init__(self, dna, frame, ObjType, ObjPosX, ObjPosY, ObjLength, ObjWidth, SquareColour, index, lane):
         self.col_line = None
         self._speed_limit = dna.speed_limit
         self._frame = frame
@@ -14,17 +18,26 @@ class Object:
         self._dna = dna
         self._index = index
         self._dirFlag = 1
+        self._lane = lane
+        self.collide = False
 
         if dna.ratio is None:
-            self._ratio = (0,0,0)
+            self._ratio = (0, 0, 0)
         else:
             self._ratio = dna.ratio
 
-        self._Points = [(ObjPosX, ObjPosY), (ObjPosX + ObjLength, ObjPosY), (ObjPosX + ObjLength, ObjPosY + ObjWidth), (ObjPosX, ObjPosY + ObjWidth)]
-        #self.centroid(self._Points)
-        #self.init_radar(dna.radius*dna.ratio[0], dna.radius *dna.ratio[1], dna.radius *dna.ratio[2], aicanvas, "yellow", "green", "red")
+        self._Points = [(ObjPosX, ObjPosY), (ObjPosX + ObjLength, ObjPosY), (ObjPosX + ObjLength, ObjPosY + ObjWidth),
+                        (ObjPosX, ObjPosY + ObjWidth)]
+        # self.centroid(self._Points)
+        # self.init_radar(dna.radius*dna.ratio[0], dna.radius *dna.ratio[1], dna.radius *dna.ratio[2], aicanvas, "yellow", "green", "red")
         self._Shape = self._frame.canvas.create_polygon(self._Points, fill=SquareColour)
         self.object_coords()
+
+    def is_collide(self):
+        return self.collide
+
+    def accelerate(self):
+        return self._accelerate
 
     @property
     def speed_limit(self):
@@ -37,7 +50,6 @@ class Object:
     @property
     def index(self):
         return self._index
-
 
     @speed_limit.deleter
     def speed_limit(self):
@@ -106,57 +118,84 @@ class Object:
             return (result_x, result_y)
 
     def changeCoords(self):
-        self._frame.canvas.coords(self._Shape,  self._Shape_coords)
+        self._frame.canvas.coords(self._Shape, self._Shape_coords)
 
     def border_check(self):
         return self._frame.canvas.coords(self._Shape)[0] > self._frame.root.winfo_screenwidth()
 
     def move(self, obj):
-        speed_strike = .002
+        speed_strike = .01
         colour = self.complex_move(obj)
 
-        if colour is "green":
-            if self._dirFlag == 0:
-                if self._accelerate > 0:
-                    self._accelerate -= speed_strike
-            else:
+        if self.collide is True:
+            if self._accelerate > 0:
+                self._accelerate -= speed_strike
+        elif colour is "yellow" and self.collide is False:
+            if self._dirFlag == 2:
                 if self._accelerate < self._speed_limit:
                     self._accelerate += speed_strike
-        elif colour is "red":
+            else:
+                self._dirFlag = 1
+                if self._accelerate > 0:
+                    self._accelerate -= speed_strike/2
+        elif colour is "green" and self.collide is False:
+            self._dirFlag = 2
+        elif colour is "red" and self.collide is False:
             self._dirFlag = 0
             if self._accelerate > 0:
                 self._accelerate -= speed_strike
+        elif colour is "blue" :
+            self.collide = True
+            if self._accelerate > 0:
+                self._accelerate -= speed_strike
         else:
-            self._dirFlag = 1
+            self._dirFlag = 3
             if self._accelerate < self._speed_limit:
                 self._accelerate += speed_strike
         self._frame.canvas.move(self._Shape, self._accelerate, 0)
         if self.border_check():
             self.changeCoords()
 
+        if colour is "yellow":
+            l = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"), ",", str(self._accelerate), ",y",",",
+                 str(self.index), "\n"]
+            stri = "".join(l)
+            fileio('E:\Projects\Project-GA\AutoDrivingCar\src\Tools\GraphInput.txt').write_file(stri)
+        elif colour is "green":
+            l = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"), ",", str(self._accelerate), ",g",",",
+                 str(self.index), "\n"]
+            stri = "".join(l)
+            fileio('E:\Projects\Project-GA\AutoDrivingCar\src\Tools\GraphInput.txt').write_file(stri)
+        elif colour is "red":
+            l = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"), ",", str(self._accelerate), ",r",",",
+                 str(self.index), "\n"]
+            stri = "".join(l)
+            fileio('E:\Projects\Project-GA\AutoDrivingCar\src\Tools\GraphInput.txt').write_file(stri)
+        elif colour is "blue":
+            l = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"), ",", str(self._accelerate), ",black",",",
+                 str(self.index), "\n"]
+            stri = "".join(l)
+            fileio('E:\Projects\Project-GA\AutoDrivingCar\src\Tools\GraphInput.txt').write_file(stri)
+
+
     def object_coords(self):
-        self._Shape_coords  = self._frame.canvas.coords(self._Shape)
+        self._Shape_coords = self._frame.canvas.coords(self._Shape)
 
     def complex_move(self, obj):
         col_obj = None
+        previous_obj = copy.copy(col_obj)
         col_dist = 1000000000
         colour = "white"
         l = []
 
-        if self.col_line is not None:
-            self._frame.canvas.delete(self.col_line)
-            self._frame.canvas.itemconfig(self._Shape, fill="white")
-            col_obj = None
-            col_dist = 1000000000
-            self.col_line = None
+        xy = self.centroid()
 
         if len(obj) > 1:
             for i in range(len(obj)):
                 if obj[i].index != self.index:
-                    xy = self.centroid()
                     obj_xy = obj[i].centroid()
 
-                    if xy[1] == obj_xy[1]:
+                    if xy[1] == obj_xy[1] and obj[i].is_collide() is not True:
                         self._frame.canvas.itemconfig(self._Shape, fill="white")
                         if ((self._dna.radius * self._dna.ratio[0]) + xy[0]) >= obj[i].front_back()[1][0] \
                                 and (self._dna.radius * self._dna.ratio[1] + xy[0]) < obj[i].front_back()[1][0] \
@@ -165,7 +204,6 @@ class Object:
                                 col_dist = (obj[i].front_back()[1][0] - self.front_back()[0][0])
                                 col_obj = obj[i]
                             colour = "yellow"
-                            self._frame.canvas.itemconfig(self._Shape, fill="white")
 
                         elif (self._dna.radius * self._dna.ratio[1] + xy[0]) >= obj[i].front_back()[1][0] \
                                 and (self._dna.radius * self._dna.ratio[2] + xy[0]) < obj[i].front_back()[1][0] \
@@ -174,7 +212,6 @@ class Object:
                                 col_dist = (obj[i].front_back()[1][0] - self.front_back()[0][0])
                                 col_obj = obj[i]
                             colour = "green"
-                            self._frame.canvas.itemconfig(self._Shape, fill="white")
 
                         elif (self._dna.radius * self._dna.ratio[2] + xy[0]) >= obj[i].front_back()[1][0] \
                                 and self.front_back()[0][0] < obj[i].front_back()[1][0]:
@@ -182,7 +219,6 @@ class Object:
                                 col_dist = (obj[i].front_back()[1][0] - self.front_back()[0][0])
                                 col_obj = obj[i]
                             colour = "red"
-                            self._frame.canvas.itemconfig(self._Shape, fill="white")
 
                         elif self.front_back()[0][0] >= obj[i].front_back()[1][0] \
                                 and self.front_back()[1][0] <= obj[i].front_back()[1][0]:
@@ -193,18 +229,21 @@ class Object:
                             col_obj = None
                             self.col_line = None
 
-                        else:
-                            col_dist = 1000000000
-                            if self.col_line is not None:
-                                self._frame.canvas.delete(self.col_line)
-                                self._frame.canvas.itemconfig(self._Shape, fill="white")
-                                col_obj = None
-                                self.col_line = None
-
             if col_dist != 1000000000:
                 l.insert(len(l), self.front_back())
                 l.insert(len(l), col_obj.front_back())
-                self.col_line = self._frame.canvas.create_line(l[0][0][0], l[0][0][1], l[1][1][0], l[1][1][1],
-                                                               fill=colour)
+                if previous_obj is col_dist:
+                     self._frame.canvas.itemconfig(self.col_line, l[0][0][0], l[0][0][1], l[1][1][0], l[1][1][1],
+                                                                   fill=colour)
+                else:
+                    self._frame.canvas.delete(self.col_line)
+                    self.col_line = self._frame.canvas.create_line(l[0][0][0], l[0][0][1], l[1][1][0], l[1][1][1],
+                                                                   fill=colour)
 
+            else:
+                if self.col_line is not None:
+                    col_obj = None
+                    self._frame.canvas.delete(self.col_line)
+                    col_dist = 1000000000
+                    self.col_line = None
         return colour

@@ -3,13 +3,18 @@ from Utility.Frame import Frame
 from Operational_Logic.DNA import DNA
 from Operational_Logic.Population import Population
 from Object.Object import Object
+from Tools.fileio import fileio
 from Object.Enum import *
 
 
 class Blueprint:
 
     def __init__(self):
-        self._population = Population(200,1).init_population()
+        fileio('E:\Projects\Project-GA\AutoDrivingCar\src\Tools\GraphInput.txt').file_flush()
+        self.obj_count = 0
+        self.Population = Population(500, 1)
+        self._population = self.Population.init_population()
+        self._generation = 0
         self.count = 50
         self._frame = Frame()
         self._frame.init_frame("fullscreen", "main")
@@ -92,6 +97,21 @@ class Blueprint:
 
         self._frame.canvas.create_rectangle(0, 685, self._frame.root.winfo_screenwidth(), 715, fill="green")
 
+        self._frame.canvas.create_text(652, 730, fill="white", font="Times 15 bold", text="Population : ")
+        self._frame.canvas.create_text(648, 760, fill="white", font="Times 15 bold", text="Generation : ")
+        self._frame.canvas.create_text(634, 790, fill="white", font="Times 15 bold", text="Mutation Rate : ")
+        self._frame.canvas.create_text(666, 820, fill="white", font="Times 15 bold", text="Fitness : ")
+        self._frame.canvas.create_text(608, 850, fill="white", font="Times 15 bold", text="Extinguishing Peirod : ")
+        self._frame.canvas.create_text(1311, 730, fill="white", font="Times 15 bold", text="Population Created : ")
+
+        self._P = self._frame.canvas.create_text(808, 730, fill="white", font="Times 15 bold", text=self.Population.population)
+        self._G = self._frame.canvas.create_text(808, 760, fill="white", font="Times 15 bold", text="210")
+        self._M = self._frame.canvas.create_text(808, 790, fill="white", font="Times 15 bold", text= self.Population.mutation_rate)
+        self._F = self._frame.canvas.create_text(808, 820, fill="white", font="Times 15 bold", text="224")
+        self._EP = self._frame.canvas.create_text(808, 850, fill="white", font="Times 15 bold", text="10000")
+        self._GC = self._frame.canvas.create_text(1451, 730, fill="white", font="Times 15 bold", text="0")
+
+
     def print_lane(self, start, end):
         lane_no = (end - start)/3
 
@@ -112,27 +132,42 @@ class Blueprint:
         return [(35, 92.5), (97.5, 152.5), (157.5, 215), (265, 322.5), (327.5, 382.5), (387.5, 445), (495, 552.5), (557.5, 612.5), (617.5, 675)]
 
     def create_obj(self, obj):
-        if self.count == 50 and len(obj) < len(self._population):
-            y = randint(0, 8)
-            obj.insert( len(obj), Object(self._population[len(obj)], self._frame, Type.CAR, -210,
+        y = randint(0, 8)
+
+        if self.count == 50 and self.obj_count < len(self._population):
+            obj[y].insert(len(obj[y]), Object(self._population[self.obj_count], self._frame, Type.CAR, -210,
                               self.Yaxis(self.car_coordinates_list()[y][0], self.car_coordinates_list()[y][1]), 55,
-                              17.5, "white", len(obj)))
+                              17.5, "white", self.obj_count,y))
+            self.obj_count += 1
             self.count = 0
+
         return obj
 
     def move(self, objects):
         for i in range(len(objects)):
-            objects[i].move(objects)
+            for j in range(len(objects[i])):
+                if objects[i][j].is_collide() is not True or objects[i][j].accelerate() >= 0:
+                    objects[i][j].move(objects[i])
 
     def draw(self):
         obj = []
+        for i in range(9):
+            obj.insert(len(obj), [])
         while True:
             obj = self.create_obj(obj)
             self.move(obj)
-            self._frame.root.after_idle(self.update)
             self.count += 1
+            self._frame.canvas.itemconfig( self._GC, text=self.obj_count)
+            self._frame.root.after_idle(self.update)
             yield
 
     def update(self):
         self.update = self.draw().__next__
-        self._frame._root.after(1000, self.update)
+        self._frame._root.after(1, self.update)
+
+    def update_score(self):
+        self._frame.canvas.create_text(652, 730, fill="white", font="Times 15 bold", text="Population : ")
+        self._frame.canvas.create_text(609, 760, fill="white", font="Times 15 bold", text="Generation Strength : ")
+        self._frame.canvas.create_text(611, 790, fill="white", font="Times 15 bold", text="Generation Created : ")
+        self._frame.canvas.create_text(666, 820, fill="white", font="Times 15 bold", text="Fitness : ")
+        self._frame.canvas.create_text(608, 850, fill="white", font="Times 15 bold", text="Extinguishing Peirod : ")

@@ -2,9 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08175874-9091-4921-aae8-081cf7817440" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Tools/GraphInput.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tools/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tools/fileio.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/envs/AutoDrivingCar/Scripts/py.test.exe" beforeDir="false" afterPath="$PROJECT_DIR$/envs/AutoDrivingCar/Scripts/py.test.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/envs/AutoDrivingCar/Scripts/pytest.exe" beforeDir="false" afterPath="$PROJECT_DIR$/envs/AutoDrivingCar/Scripts/pytest.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/envs/AutoDrivingCar/conda-meta/history" beforeDir="false" afterPath="$PROJECT_DIR$/envs/AutoDrivingCar/conda-meta/history" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/envs/AutoDrivingCar/conda-meta/setuptools-40.5.0-py37_0.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Environment/Blueprint.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Environment/Blueprint.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Object/Object.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Object/Object.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Operational_Logic/Population.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Operational_Logic/Population.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/__main__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/demo.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,11 +23,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/AutoDrivingCar$Graph_pyw.coverage" NAME="Graph.pyw Coverage Results" MODIFIED="1542570053469" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Tools" />
     <SUITE FILE_PATH="coverage/AutoDrivingCar$BaseGround.coverage" NAME="BaseGround Coverage Results" MODIFIED="1540097074265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Environment" />
     <SUITE FILE_PATH="coverage/AutoDrivingCar$Frame.coverage" NAME="Frame Coverage Results" MODIFIED="1540138980972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Utility" />
     <SUITE FILE_PATH="coverage/AutoDrivingCar$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1540147492616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Utility" />
-    <SUITE FILE_PATH="coverage/AutoDrivingCar$__main__.coverage" NAME="__main__ Coverage Results" MODIFIED="1541930831966" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/AutoDrivingCar$__main__.coverage" NAME="__main__ Coverage Results" MODIFIED="1542548228171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/AutoDrivingCar$Graph_Snapshot_pyw.coverage" NAME="Graph Snapshot.pyw Coverage Results" MODIFIED="1542677446562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Tools" />
     <SUITE FILE_PATH="coverage/AutoDrivingCar$demo.coverage" NAME="demo Coverage Results" MODIFIED="1541876775864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/AutoDrivingCar$Graph.coverage" NAME="Graph Coverage Results" MODIFIED="1542521181495" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -38,38 +50,49 @@
     <session id="-791029288">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="17" />
+          <entry key="project.closed" value="25" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.129" value="1" />
           <entry key="project.open.time.135" value="1" />
           <entry key="project.open.time.144" value="1" />
           <entry key="project.open.time.37" value="1" />
+          <entry key="project.open.time.45" value="1" />
+          <entry key="project.open.time.49" value="1" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.50" value="1" />
           <entry key="project.open.time.51" value="1" />
           <entry key="project.open.time.52" value="1" />
+          <entry key="project.open.time.53" value="1" />
           <entry key="project.open.time.55" value="1" />
           <entry key="project.open.time.59" value="1" />
-          <entry key="project.open.time.6" value="3" />
+          <entry key="project.open.time.6" value="4" />
           <entry key="project.open.time.60" value="1" />
+          <entry key="project.open.time.62" value="1" />
+          <entry key="project.open.time.65" value="1" />
           <entry key="project.open.time.68" value="1" />
           <entry key="project.open.time.76" value="1" />
           <entry key="project.open.time.79" value="1" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.80" value="1" />
-          <entry key="project.opened" value="20" />
+          <entry key="project.open.time.88" value="1" />
+          <entry key="project.opened" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="JavaScript-modules-diagram/E:/Projects/Project-GA/AutoDrivingCar" value="1" />
-          <entry key="pstat" value="1" />
-          <entry key="py" value="164" />
+          <entry key="pstat" value="12" />
+          <entry key="py" value="218" />
+          <entry key="pyw" value="9" />
           <entry key="sql" value="4" />
+          <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Profiler Session" value="1" />
-          <entry key="Python" value="164" />
+          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="Profiler Session" value="12" />
+          <entry key="Python" value="227" />
           <entry key="SQL" value="4" />
           <entry key="UML" value="1" />
         </counts>
@@ -81,14 +104,16 @@
           <entry key="__init__" value="12" />
           <entry key="__main__" value="1" />
           <entry key="demo" value="4" />
-          <entry key="dummy" value="8" />
-          <entry key="py" value="20172" />
+          <entry key="dummy" value="14" />
+          <entry key="py" value="23655" />
+          <entry key="pyw" value="2409" />
+          <entry key="txt" value="178" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="20219" />
+          <entry key="PLAIN_TEXT" value="192" />
+          <entry key="Python" value="26111" />
         </counts>
       </usages-collector>
     </session>
@@ -98,23 +123,94 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Object/Object.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="127" column="48" lean-forward="true" selection-start-line="127" selection-start-column="48" selection-end-line="127" selection-end-column="48" />
+            <state relative-caret-position="1400">
+              <caret line="136" column="17" selection-start-line="136" selection-start-column="17" selection-end-line="136" selection-end-column="17" />
               <folding>
-                <marker date="1541945685892" expanded="true" signature="1821:1881" ph="..." />
+                <element signature="e#0#15#0" expanded="true" />
+                <marker date="1542574015427" expanded="true" signature="1228:1266" ph="..." />
+                <marker date="1542574015427" expanded="true" signature="2084:2144" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Utility/Controller.py">
+        <entry file="file://$PROJECT_DIR$/src/Tools/Graph Live.pyw">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
+            <state relative-caret-position="85">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Auto Driving AI.pyw">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="11" lean-forward="true" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/demo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="24" selection-start-column="24" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/__main__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="15" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Tools/fileio.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Operational_Logic/DNA.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Operational_Logic/Population.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="68" column="40" lean-forward="true" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+                <marker date="1542573038570" expanded="true" signature="333:452" ph="..." />
+                <marker date="1542573038570" expanded="true" signature="475:499" ph="..." />
+                <marker date="1542573038570" expanded="true" signature="527:551" ph="..." />
+                <marker date="1542573038570" expanded="true" signature="1523:1556" ph="..." />
+                <marker date="1542573038570" expanded="true" signature="1574:1598" ph="..." />
+                <marker date="1542573038570" expanded="true" signature="1617:1641" ph="..." />
+                <marker date="1542573038570" expanded="true" signature="1661:1685" ph="..." />
+                <marker date="1542573038570" expanded="true" signature="1739:1888" ph="..." />
+                <marker date="1542573038570" expanded="true" signature="1912:1936" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -129,82 +225,14 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/__main__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Utility/Frame.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-                <marker date="1541349335454" expanded="true" signature="124:129" ph="..." />
-                <marker date="1541349335454" expanded="true" signature="153:183" ph="..." />
-                <marker date="1541349335454" expanded="true" signature="470:506" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Environment/Blueprint.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="118" column="46" lean-forward="true" selection-start-line="118" selection-start-column="46" selection-end-line="118" selection-end-column="46" />
+            <state relative-caret-position="136">
+              <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <marker date="1541943890052" expanded="true" signature="3189:3190" ph="..." />
-                <marker date="1541943890052" expanded="true" signature="3189:3197" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/demo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="15" column="57" lean-forward="true" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Operational_Logic/DNA.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="50" column="39" selection-start-line="50" selection-start-column="39" selection-end-line="50" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Operational_Logic/Population.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1343">
-              <caret line="79" column="29" lean-forward="true" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-                <marker date="1541942782223" expanded="true" signature="321:345" ph="..." />
-                <marker date="1541942782223" expanded="true" signature="373:397" ph="..." />
-                <marker date="1541942782223" expanded="true" signature="1273:1306" ph="..." />
-                <marker date="1541942782223" expanded="true" signature="1324:1348" ph="..." />
-                <marker date="1541942782223" expanded="true" signature="1367:1391" ph="..." />
-                <marker date="1541942782223" expanded="true" signature="1411:1435" ph="..." />
-                <marker date="1541942782223" expanded="true" signature="1489:1638" ph="..." />
-                <marker date="1541942782223" expanded="true" signature="1662:1686" ph="..." />
+                <marker date="1542665942038" expanded="true" signature="3414:3415" ph="..." />
+                <marker date="1542665942038" expanded="true" signature="3414:3422" ph="..." />
               </folding>
             </state>
           </provider>
@@ -233,6 +261,16 @@
       <find>coordinates</find>
       <find>self.centroid(xy)</find>
       <find>xy[0][0]</find>
+      <find>yell</find>
+      <find>gr</find>
+      <find>green</find>
+      <find>255,255,0</find>
+      <find>0,255,0</find>
+      <find>Y</find>
+      <find>R</find>
+      <find>G</find>
+      <find>g</find>
+      <find>217, 30, 24</find>
     </findStrings>
     <replaceStrings>
       <replace>radius</replace>
@@ -246,6 +284,14 @@
       <replace>coords</replace>
       <replace>xy</replace>
       <replace>xy[0]</replace>
+      <replace>0,255,0</replace>
+      <replace>Y</replace>
+      <replace>G</replace>
+      <replace>y</replace>
+      <replace>r</replace>
+      <replace>g</replace>
+      <replace>#00ff00</replace>
+      <replace>217,30,24</replace>
     </replaceStrings>
     <dirStrings>
       <dir>E:\Projects\Project-GA\AutoDrivingCar\src</dir>
@@ -277,12 +323,25 @@
         <option value="$PROJECT_DIR$/src/Utility/Controller.py" />
         <option value="$PROJECT_DIR$/src/Operational_Logic/DNA.py" />
         <option value="$PROJECT_DIR$/src/Utility/Frame.py" />
-        <option value="$PROJECT_DIR$/src/__main__.py" />
         <option value="$PROJECT_DIR$/src/Object/Radar.py" />
-        <option value="$PROJECT_DIR$/src/demo.py" />
+        <option value="$PROJECT_DIR$/src/GraphInput.txt" />
+        <option value="$PROJECT_DIR$/src/Graph.py" />
+        <option value="$PROJECT_DIR$/src/Tools/Graph.py" />
+        <option value="$PROJECT_DIR$/src/Tools/__init__.py" />
+        <option value="$PROJECT_DIR$/src/Tools/fileio.py" />
+        <option value="$PROJECT_DIR$/src/Tools/GraphInput.txt" />
         <option value="$PROJECT_DIR$/src/Operational_Logic/Population.py" />
-        <option value="$PROJECT_DIR$/src/Environment/Blueprint.py" />
         <option value="$PROJECT_DIR$/src/Object/Object.py" />
+        <option value="$PROJECT_DIR$/src/Tools/Graph.pyw" />
+        <option value="$PROJECT_DIR$/src/__main__.pyw" />
+        <option value="$PROJECT_DIR$/src/__main__.py" />
+        <option value="$PROJECT_DIR$/src/Environment/Blueprint.py" />
+        <option value="$PROJECT_DIR$/src/Tools/Graph Snapshot.py" />
+        <option value="$PROJECT_DIR$/src/demo.py" />
+        <option value="$PROJECT_DIR$/src/Tools/Graph Snapshot.pyw" />
+        <option value="$PROJECT_DIR$/src/Auto Driving AI.pyw.py" />
+        <option value="$PROJECT_DIR$/src/Tools/Graph Live.pyw" />
+        <option value="$PROJECT_DIR$/src/Auto Driving AI.pyw" />
       </list>
     </option>
   </component>
@@ -292,11 +351,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1929" />
-    <option name="y" value="911" />
-    <option name="width" value="1938" />
-    <option name="height" value="1098" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-275" />
+    <option name="y" value="250" />
+    <option name="width" value="1940" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -323,6 +382,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -357,13 +417,18 @@
               <item name="AutoDrivingCar" type="b2602c69:ProjectViewProjectNode" />
               <item name="AutoDrivingCar" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Tools" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AutoDrivingCar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AutoDrivingCar" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Utility" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -380,16 +445,20 @@
       </console-settings>
     </option>
   </component>
+  <component name="PyCoverageOptionsProvider">
+    <option name="myUseBundledCoveragePy" value="true" />
+  </component>
   <component name="PyDebuggerOptionsProvider">
     <option name="mySaveCallSignatures" value="true" />
     <option name="mySupportGeventDebugging" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Projects\Project-GA\AutoDrivingCar\src\Utility" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Projects\Project-GA\AutoDrivingCar\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Projects\Project-GA\AutoDrivingCar\src\Tools" />
+      <recent name="E:\Projects\Project-GA\AutoDrivingCar\src\Utility" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -405,20 +474,17 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.__main__">
-    <configuration name="Frame" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Graph Snapshot.pyw" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AutoDrivingCar" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/Utility" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/Tools" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/Utility/Frame.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/Tools/Graph Snapshot.pyw" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -427,7 +493,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Object" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Graph" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AutoDrivingCar" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -435,12 +501,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/Object" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/Object/Object.py" />
+      <option name="SCRIPT_NAME" value="E:\Projects\Project-GA\AutoDrivingCar\src\Tools\Graph.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -449,7 +515,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Radar" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Graph.pyw" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AutoDrivingCar" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -457,12 +523,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/Object" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/Tools" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/Object/Radar.py" />
+      <option name="SCRIPT_NAME" value="E:\Projects\Project-GA\AutoDrivingCar\src\Tools\Graph Live.pyw" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -535,19 +601,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.Radar" />
       <item itemvalue="Python.__main__" />
-      <item itemvalue="Python.Frame" />
       <item itemvalue="Python.demo" />
-      <item itemvalue="Python.Object" />
+      <item itemvalue="Python.Graph" />
+      <item itemvalue="Python.Graph.pyw" />
+      <item itemvalue="Python.Graph Snapshot.pyw" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.__main__" />
+        <item itemvalue="Python.Graph Snapshot.pyw" />
         <item itemvalue="Python.demo" />
-        <item itemvalue="Python.Frame" />
-        <item itemvalue="Python.Radar" />
-        <item itemvalue="Python.Object" />
+        <item itemvalue="Python.Graph.pyw" />
+        <item itemvalue="Python.Graph" />
       </list>
     </recent_temporary>
   </component>
@@ -578,29 +644,30 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1927" y="913" width="1550" height="878" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="878" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49118388" visible="true" weight="0.18120806" />
-      <window_info id="Structure" order="1" sideWeight="0.5088161" side_tool="true" visible="true" weight="0.18120806" />
-      <window_info id="Favorites" order="2" sideWeight="0.502" side_tool="true" weight="0.25637585" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.738255" visible="true" weight="0.20536913" />
+      <window_info id="Structure" order="1" sideWeight="0.26174498" side_tool="true" weight="0.20268457" />
+      <window_info id="Favorites" order="2" sideWeight="0.51171875" side_tool="true" weight="0.18389262" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4986577" weight="0.32885906" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4899329" weight="0.40536913" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.48456377" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5402685" weight="0.40536913" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.48255032" weight="0.3409396" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32885906" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32885906" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.41208053" side_tool="true" weight="0.29395974" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4966443" weight="0.3261745" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="12" sideWeight="0.5879195" visible="true" weight="0.4671141" />
-      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" sideWeight="0.4986577" weight="0.29798657" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.49261746" side_tool="true" weight="0.3261745" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.5073826" weight="0.3261745" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="12" sideWeight="0.51946306" weight="0.29798657" />
+      <window_info anchor="bottom" id="Python Console" order="13" sideWeight="0.45973155" visible="true" weight="0.24295302" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" sideWeight="0.498" weight="0.3295302" />
+      <window_info anchor="right" id="SciView" order="3" sideWeight="0.498" weight="0.10536913" />
       <window_info anchor="right" id="R Graphics" order="4" weight="0.3295302" />
       <window_info anchor="right" id="R Packages" order="5" sideWeight="0.496" weight="0.3295302" />
       <window_info anchor="right" x="0" y="0" width="337" height="678" id="Documentation" order="6" sideWeight="0.504" side_tool="true" weight="0.19798657" />
@@ -608,28 +675,28 @@
       <window_info anchor="right" id="Coverage" order="8" side_tool="true" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49239543" visible="true" weight="0.21744967" />
-      <window_info id="Structure" order="1" sideWeight="0.50760454" side_tool="true" visible="true" weight="0.21744967" />
-      <window_info id="Favorites" order="2" sideWeight="0.502" side_tool="true" weight="0.25637585" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.738255" visible="true" weight="0.20268457" />
+      <window_info id="Structure" order="1" sideWeight="0.26174498" side_tool="true" visible="true" weight="0.20268457" />
+      <window_info id="Favorites" order="2" sideWeight="0.51171875" side_tool="true" weight="0.18389262" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4986577" weight="0.32885906" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4899329" weight="0.40536913" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.48456377" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5402685" weight="0.40536913" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.48255032" weight="0.3409396" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32885906" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32885906" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.41208053" side_tool="true" visible="true" weight="0.29395974" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4966443" weight="0.32751676" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="12" sideWeight="0.5879195" visible="true" weight="0.29395974" />
-      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" sideWeight="0.4986577" weight="0.29798657" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.49261746" side_tool="true" weight="0.3261745" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.5073826" weight="0.3261745" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="12" sideWeight="0.51946306" weight="0.29798657" />
+      <window_info anchor="bottom" id="Python Console" order="13" sideWeight="0.45973155" weight="0.24295302" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" sideWeight="0.498" weight="0.3295302" />
-      <window_info anchor="right" id="R Graphics" order="4" />
+      <window_info anchor="right" id="SciView" order="3" sideWeight="0.498" visible="true" weight="0.10536913" />
+      <window_info anchor="right" id="R Graphics" order="4" weight="0.3295302" />
       <window_info anchor="right" id="R Packages" order="5" sideWeight="0.496" weight="0.3295302" />
       <window_info anchor="right" x="0" y="0" width="337" height="678" id="Documentation" order="6" sideWeight="0.504" side_tool="true" weight="0.19798657" />
       <window_info anchor="right" id="Database" order="7" sideWeight="0.496" weight="0.3295302" />
@@ -680,6 +747,28 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/Operational_Logic/DNA.py</url>
+          <line>39</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/Object/Object.py</url>
+          <line>241</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/Object/Object.py</url>
+          <line>244</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/Tools/Graph Snapshot.pyw</url>
+          <line>25</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -693,28 +782,86 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="self.x0" />
-        <watch expression="self.y0" />
-        <watch expression="self.bearing" />
+        <watch expression="x" />
+        <watch expression="b" />
       </configuration>
     </watches-manager>
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="breakpointCondition">
+      <expression>
+        <expression-string>self.count==50</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.count == 50</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.obj_count == 48  
+self.count == 50</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.obj_count == 48</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.obj_count == 49</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.count == 50</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.count ==50</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.obj_count == 99</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.obj_count == 199</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="watch">
+      <expression>
+        <expression-string>l[i]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self._speed_limit</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self._index</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>__py_debug_temp_var_1176812492</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/envs/AutoDrivingCar/Lib/site-packages/qiskit_aqua/algomethods.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/pip-install-o21t74rz/pyscf/setup.py" />
-    <entry file="file://$PROJECT_DIR$/envs/AutoDrivingCar/Lib/site-packages/qiskit_aqua/utils/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/envs/AutoDrivingCar/Lib/site-packages/qiskit_aqua/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="94">
@@ -758,20 +905,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Utility/__main__.py" />
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4128">
-          <caret line="1663" selection-start-line="1663" selection-end-line="1663" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/envs/AutoDrivingCar/Lib/enum.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
@@ -783,13 +916,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fake_credit_record_script.sql" />
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_bundle/pydev_import_hook.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/envs/AutoDrivingCar/Lib/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -804,34 +930,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Object/Enum.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Object/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="21" lean-forward="true" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Utility/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Operational_Logic/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -899,34 +1001,182 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Operational_Logic/DNA.py">
+    <entry file="file://$PROJECT_DIR$/src/Utility/Frame.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="50" column="39" selection-start-line="50" selection-start-column="39" selection-end-line="50" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/demo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="15" column="57" lean-forward="true" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
+        <state relative-caret-position="680">
+          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
+            <marker date="1541349335454" expanded="true" signature="124:129" ph="..." />
+            <marker date="1541349335454" expanded="true" signature="153:183" ph="..." />
+            <marker date="1541349335454" expanded="true" signature="470:506" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utility/Controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/envs/AutoDrivingCar/Lib/tkinter/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="2588" column="8" selection-start-line="2588" selection-start-column="8" selection-end-line="2588" selection-end-column="8" />
+        <state relative-caret-position="365">
+          <caret line="2464" selection-start-line="2464" selection-end-line="2464" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_bundle/pydev_import_hook.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/envs/AutoDrivingCar/Lib/site-packages/finance/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/envs/AutoDrivingCar/Lib/site-packages/mpl_finance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="238" column="24" lean-forward="true" selection-start-line="238" selection-start-column="24" selection-end-line="238" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tools/Graph.py" />
+    <entry file="file://$PROJECT_DIR$/src/Utility/Controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Object/Enum.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Object/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="2" column="21" lean-forward="true" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Operational_Logic/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tools/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="1663" selection-start-line="1663" selection-end-line="1663" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/matplotlib/cbook/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="210" selection-start-line="210" selection-end-line="210" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tools/GraphInput.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/matplotlib/pyplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="253" selection-start-line="253" selection-end-line="253" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pycharm_matplotlib_backend/backend_interagg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-580">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/matplotlib/backends/backend_agg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="406" selection-start-line="406" selection-end-line="406" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/matplotlib/artist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/matplotlib/figure.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="1655" selection-start-line="1655" selection-end-line="1655" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/matplotlib/backend_bases.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="1686" selection-start-line="1686" selection-end-line="1686" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/matplotlib/animation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="1003" selection-start-line="1003" selection-end-line="1003" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/__main__.pyw" />
+    <entry file="file://$PROJECT_DIR$/src/Tools/Graph Snapshot.py" />
+    <entry file="file://$PROJECT_DIR$/src/Auto Driving AI.pyw.py" />
+    <entry file="file://$PROJECT_DIR$/src/Tools/Graph Snapshot.pyw">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1700">
+          <caret line="102" column="26" selection-start-line="102" selection-start-column="26" selection-end-line="102" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+            <marker date="1542677707664" expanded="true" signature="146:4101" ph="..." />
+            <marker date="1542677707664" expanded="true" signature="4206:4772" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="24" selection-start-column="24" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Operational_Logic/DNA.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -937,66 +1187,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Environment/Blueprint.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <marker date="1542665942038" expanded="true" signature="3414:3415" ph="..." />
+            <marker date="1542665942038" expanded="true" signature="3414:3422" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tools/Graph Live.pyw">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/__main__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="26" />
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="15" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utility/Frame.py">
+    <entry file="file://$PROJECT_DIR$/src/Tools/fileio.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+        <state relative-caret-position="289">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Object/Object.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1400">
+          <caret line="136" column="17" selection-start-line="136" selection-start-column="17" selection-end-line="136" selection-end-column="17" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
-            <marker date="1541349335454" expanded="true" signature="124:129" ph="..." />
-            <marker date="1541349335454" expanded="true" signature="153:183" ph="..." />
-            <marker date="1541349335454" expanded="true" signature="470:506" ph="..." />
+            <element signature="e#0#15#0" expanded="true" />
+            <marker date="1542574015427" expanded="true" signature="1228:1266" ph="..." />
+            <marker date="1542574015427" expanded="true" signature="2084:2144" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Operational_Logic/Population.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1343">
-          <caret line="79" column="29" lean-forward="true" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
+        <state relative-caret-position="312">
+          <caret line="68" column="40" lean-forward="true" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-            <marker date="1541942782223" expanded="true" signature="321:345" ph="..." />
-            <marker date="1541942782223" expanded="true" signature="373:397" ph="..." />
-            <marker date="1541942782223" expanded="true" signature="1273:1306" ph="..." />
-            <marker date="1541942782223" expanded="true" signature="1324:1348" ph="..." />
-            <marker date="1541942782223" expanded="true" signature="1367:1391" ph="..." />
-            <marker date="1541942782223" expanded="true" signature="1411:1435" ph="..." />
-            <marker date="1541942782223" expanded="true" signature="1489:1638" ph="..." />
-            <marker date="1541942782223" expanded="true" signature="1662:1686" ph="..." />
+            <marker date="1542573038570" expanded="true" signature="333:452" ph="..." />
+            <marker date="1542573038570" expanded="true" signature="475:499" ph="..." />
+            <marker date="1542573038570" expanded="true" signature="527:551" ph="..." />
+            <marker date="1542573038570" expanded="true" signature="1523:1556" ph="..." />
+            <marker date="1542573038570" expanded="true" signature="1574:1598" ph="..." />
+            <marker date="1542573038570" expanded="true" signature="1617:1641" ph="..." />
+            <marker date="1542573038570" expanded="true" signature="1661:1685" ph="..." />
+            <marker date="1542573038570" expanded="true" signature="1739:1888" ph="..." />
+            <marker date="1542573038570" expanded="true" signature="1912:1936" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Environment/Blueprint.py">
+    <entry file="file://$PROJECT_DIR$/src/Auto Driving AI.pyw">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="118" column="46" lean-forward="true" selection-start-line="118" selection-start-column="46" selection-end-line="118" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <marker date="1541943890052" expanded="true" signature="3189:3190" ph="..." />
-            <marker date="1541943890052" expanded="true" signature="3189:3197" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Object/Object.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="127" column="48" lean-forward="true" selection-start-line="127" selection-start-column="48" selection-end-line="127" selection-end-column="48" />
-          <folding>
-            <marker date="1541945685892" expanded="true" signature="1821:1881" ph="..." />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="1" column="11" lean-forward="true" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
         </state>
       </provider>
     </entry>

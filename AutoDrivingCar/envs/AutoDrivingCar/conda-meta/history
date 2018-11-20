@@ -50,3 +50,9 @@
 -defaults::python-3.7.0-hea74fb7_0
 +defaults::python-3.7.1-h33f27b4_4
 # update specs: ['python==3.7.1']
+==> 2018-11-18 02:09:23 <==
+# cmd: E:\Softwares\Anaconda\Scripts\conda install -p E:/Projects/Project-GA/AutoDrivingCar/envs/AutoDrivingCar setuptools==40.6.2 -y
+# conda version: 4.5.11
+-defaults::setuptools-40.5.0-py37_0
++defaults::setuptools-40.6.2-py37_0
+# update specs: ['setuptools==40.6.2']
