@@ -9,13 +9,15 @@ from Object.Enum import *
 
 class Blueprint:
 
-    def __init__(self):
-        fileio('E:\Projects\Project-GA\AutoDrivingCar\src\Tools\GraphInput.txt').file_flush()
+    def __init__(self, cwd):
         self.obj_count = 0
         self.Population = Population(500, 1)
         self._population = self.Population.init_population()
         self._generation = 0
         self.count = 50
+        self._cwd = cwd
+
+        fileio(self._cwd+'\Tools\GraphInput.txt').file_flush()
         self._frame = Frame()
         self._frame.init_frame("fullscreen", "main")
         #self.init_blueprint_test()
@@ -137,7 +139,7 @@ class Blueprint:
         if self.count == 50 and self.obj_count < len(self._population):
             obj[y].insert(len(obj[y]), Object(self._population[self.obj_count], self._frame, Type.CAR, -210,
                               self.Yaxis(self.car_coordinates_list()[y][0], self.car_coordinates_list()[y][1]), 55,
-                              17.5, "white", self.obj_count,y))
+                              17.5, "white", self.obj_count, y, self._cwd))
             self.obj_count += 1
             self.count = 0
 

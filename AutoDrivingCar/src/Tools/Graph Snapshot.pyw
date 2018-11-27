@@ -1,4 +1,6 @@
 import datetime
+import os
+
 import matplotlib.pyplot as plt
 from matplotlib import style
 
@@ -21,7 +23,7 @@ def animate(a, b):
         plt.setp(plt.gca().get_xticklabels(), rotation=90, horizontalalignment='right')
         plt.xlabel('Time')
         plt.ylabel('Speed')
-        graph_data = open('E:\Projects\Project-GA\AutoDrivingCar\src\Tools\GraphInput.txt', 'r')
+        graph_data = open(os.getcwd() + '\GraphInput.txt', 'r')
 
         if b.lower() != "Now".lower() and a.lower() != "Start".lower() and b.lower() != "End".lower():
             if date_time(a) > date_time(b):

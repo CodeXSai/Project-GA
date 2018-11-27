@@ -4,6 +4,7 @@ The_program_to_hide = win32gui.GetForegroundWindow()
 win32gui.ShowWindow(The_program_to_hide , win32con.SW_HIDE)
 #######################################
 
+import os
 import datetime
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
@@ -20,14 +21,14 @@ def animate(i):
     xss = []
     yss = []
     zss = []
-    l  = []
+    l = []
     lss = []
 
     plt.clf()
     plt.setp(plt.gca().get_xticklabels(), rotation=90, horizontalalignment='right')
     plt.xlabel('Time')
     plt.ylabel('Speed')
-    graph_data = open('E:\Projects\Project-GA\AutoDrivingCar\src\Tools\GraphInput.txt', 'r')
+    graph_data = open(os.getcwd() + '\GraphInput.txt', 'r')
 
     for line in graph_data.readlines():
         if len(line) > 1:

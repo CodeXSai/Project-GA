@@ -8,7 +8,7 @@ import copy
 
 class Object:
 
-    def __init__(self, dna, frame, ObjType, ObjPosX, ObjPosY, ObjLength, ObjWidth, SquareColour, index, lane):
+    def __init__(self, dna, frame, ObjType, ObjPosX, ObjPosY, ObjLength, ObjWidth, SquareColour, index, lane, cwd):
         self.col_line = None
         self._speed_limit = dna.speed_limit
         self._frame = frame
@@ -20,6 +20,8 @@ class Object:
         self._dirFlag = 1
         self._lane = lane
         self.collide = False
+        self._cwd = cwd
+        self.start_state = False
 
         if dna.ratio is None:
             self._ratio = (0, 0, 0)
@@ -125,7 +127,7 @@ class Object:
 
     def move(self, obj):
         speed_strike = .01
-        colour = self.complex_move(obj)
+        colour = self.fuzzy_logic(obj)  # Calling Fuzzy Logic
 
         if self.collide is True:
             if self._accelerate > 0:
@@ -137,14 +139,14 @@ class Object:
             else:
                 self._dirFlag = 1
                 if self._accelerate > 0:
-                    self._accelerate -= speed_strike/2
+                    self._accelerate -= speed_strike / 2
         elif colour is "green" and self.collide is False:
             self._dirFlag = 2
         elif colour is "red" and self.collide is False:
             self._dirFlag = 0
             if self._accelerate > 0:
                 self._accelerate -= speed_strike
-        elif colour is "blue" :
+        elif colour is "blue":
             self.collide = True
             if self._accelerate > 0:
                 self._accelerate -= speed_strike
@@ -156,32 +158,39 @@ class Object:
         if self.border_check():
             self.changeCoords()
 
-        if colour is "yellow":
-            l = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"), ",", str(self._accelerate), ",y",",",
+        if self.start_state is False:
+            self.start_state = True
+            l = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"), ",", str(self._accelerate), ",black", ",",
                  str(self.index), "\n"]
             stri = "".join(l)
-            fileio('E:\Projects\Project-GA\AutoDrivingCar\src\Tools\GraphInput.txt').write_file(stri)
+            fileio(self._cwd + '\Tools\GraphInput.txt').write_file(stri)
+        elif colour is "yellow":
+            l = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"), ",", str(self._accelerate), ",y", ",",
+                 str(self.index), "\n"]
+            stri = "".join(l)
+            fileio(self._cwd + '\Tools\GraphInput.txt').write_file(stri)
         elif colour is "green":
-            l = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"), ",", str(self._accelerate), ",g",",",
+            l = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"), ",", str(self._accelerate), ",g", ",",
                  str(self.index), "\n"]
             stri = "".join(l)
-            fileio('E:\Projects\Project-GA\AutoDrivingCar\src\Tools\GraphInput.txt').write_file(stri)
+            fileio(self._cwd + '\Tools\GraphInput.txt').write_file(stri)
         elif colour is "red":
-            l = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"), ",", str(self._accelerate), ",r",",",
+            l = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"), ",", str(self._accelerate), ",r", ",",
                  str(self.index), "\n"]
             stri = "".join(l)
-            fileio('E:\Projects\Project-GA\AutoDrivingCar\src\Tools\GraphInput.txt').write_file(stri)
+            fileio(self._cwd + '\Tools\GraphInput.txt').write_file(stri)
         elif colour is "blue":
-            l = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"), ",", str(self._accelerate), ",black",",",
+            l = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"), ",", str(self._accelerate), ",blue", ",",
                  str(self.index), "\n"]
             stri = "".join(l)
-            fileio('E:\Projects\Project-GA\AutoDrivingCar\src\Tools\GraphInput.txt').write_file(stri)
-
+            fileio(self._cwd + '\Tools\GraphInput.txt').write_file(stri)
 
     def object_coords(self):
         self._Shape_coords = self._frame.canvas.coords(self._Shape)
 
-    def complex_move(self, obj):
+    ###################################################   Fuzzy Logic   ####################################################
+
+    def fuzzy_logic(self, obj):
         col_obj = None
         previous_obj = copy.copy(col_obj)
         col_dist = 1000000000
@@ -196,7 +205,6 @@ class Object:
                     obj_xy = obj[i].centroid()
 
                     if xy[1] == obj_xy[1] and obj[i].is_collide() is not True:
-                        self._frame.canvas.itemconfig(self._Shape, fill="white")
                         if ((self._dna.radius * self._dna.ratio[0]) + xy[0]) >= obj[i].front_back()[1][0] \
                                 and (self._dna.radius * self._dna.ratio[1] + xy[0]) < obj[i].front_back()[1][0] \
                                 and self.front_back()[0][0] < obj[i].front_back()[1][0]:
@@ -233,8 +241,8 @@ class Object:
                 l.insert(len(l), self.front_back())
                 l.insert(len(l), col_obj.front_back())
                 if previous_obj is col_dist:
-                     self._frame.canvas.itemconfig(self.col_line, l[0][0][0], l[0][0][1], l[1][1][0], l[1][1][1],
-                                                                   fill=colour)
+                    self._frame.canvas.itemconfig(self.col_line, l[0][0][0], l[0][0][1], l[1][1][0], l[1][1][1],
+                                                  fill=colour)
                 else:
                     self._frame.canvas.delete(self.col_line)
                     self.col_line = self._frame.canvas.create_line(l[0][0][0], l[0][0][1], l[1][1][0], l[1][1][1],
@@ -247,3 +255,5 @@ class Object:
                     col_dist = 1000000000
                     self.col_line = None
         return colour
+
+#################################################   Fuzzy Logic End   ##################################################
