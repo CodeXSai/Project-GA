@@ -256,4 +256,8 @@ class Object:
                     self.col_line = None
         return colour
 
-#################################################   Fuzzy Logic End   ##################################################
+    #################################################   Fuzzy Logic End   ##################################################
+
+    #TODO: Read the life duration of the object.
+    def calc_fitness(self):
+        file = fileio(self._cwd + '\Tools\GraphInput.txt').read_file()

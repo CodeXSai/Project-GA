@@ -3,13 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="08175874-9091-4921-aae8-081cf7817440" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Auto Driving AI.pyw" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auto Driving AI.pyw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Environment/Blueprint.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Environment/Blueprint.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/envs/AutoDrivingCar/Scripts/py.test.exe" beforeDir="false" afterPath="$PROJECT_DIR$/envs/AutoDrivingCar/Scripts/py.test.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/envs/AutoDrivingCar/Scripts/pytest.exe" beforeDir="false" afterPath="$PROJECT_DIR$/envs/AutoDrivingCar/Scripts/pytest.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/envs/AutoDrivingCar/Scripts/qiskit_aqua_browser.exe" beforeDir="false" afterPath="$PROJECT_DIR$/envs/AutoDrivingCar/Scripts/qiskit_aqua_browser.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/envs/AutoDrivingCar/Scripts/qiskit_aqua_cmd.exe" beforeDir="false" afterPath="$PROJECT_DIR$/envs/AutoDrivingCar/Scripts/qiskit_aqua_cmd.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/envs/AutoDrivingCar/Scripts/qiskit_aqua_ui.exe" beforeDir="false" afterPath="$PROJECT_DIR$/envs/AutoDrivingCar/Scripts/qiskit_aqua_ui.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/envs/AutoDrivingCar/conda-meta/history" beforeDir="false" afterPath="$PROJECT_DIR$/envs/AutoDrivingCar/conda-meta/history" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/envs/AutoDrivingCar/conda-meta/wheel-0.32.2-py37_0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/envs/AutoDrivingCar/share/jupyter/nbextensions/plotlywidget/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/envs/AutoDrivingCar/share/jupyter/nbextensions/plotlywidget/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/envs/AutoDrivingCar/share/jupyter/nbextensions/plotlywidget/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/envs/AutoDrivingCar/share/jupyter/nbextensions/plotlywidget/index.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Object/Object.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Object/Object.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tools/Graph Live.pyw" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tools/Graph Live.pyw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tools/Graph Snapshot.pyw" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tools/Graph Snapshot.pyw" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tools/GraphInput.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tools/GraphInput.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/__main__.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +49,7 @@
     <session id="-791029288">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="26" />
+          <entry key="project.closed" value="27" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.129" value="1" />
           <entry key="project.open.time.135" value="1" />
@@ -60,35 +64,36 @@
           <entry key="project.open.time.52" value="1" />
           <entry key="project.open.time.53" value="2" />
           <entry key="project.open.time.55" value="1" />
-          <entry key="project.open.time.59" value="1" />
+          <entry key="project.open.time.59" value="2" />
           <entry key="project.open.time.6" value="4" />
           <entry key="project.open.time.60" value="1" />
           <entry key="project.open.time.62" value="1" />
           <entry key="project.open.time.65" value="1" />
           <entry key="project.open.time.68" value="1" />
+          <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.76" value="1" />
           <entry key="project.open.time.79" value="2" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.80" value="1" />
           <entry key="project.open.time.88" value="1" />
-          <entry key="project.opened" value="32" />
+          <entry key="project.opened" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="JavaScript-modules-diagram/E:/Projects/Project-GA/AutoDrivingCar" value="1" />
           <entry key="pstat" value="13" />
-          <entry key="py" value="225" />
-          <entry key="pyw" value="14" />
+          <entry key="py" value="231" />
+          <entry key="pyw" value="16" />
           <entry key="sql" value="4" />
-          <entry key="txt" value="5" />
+          <entry key="txt" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PLAIN_TEXT" value="5" />
+          <entry key="PLAIN_TEXT" value="6" />
           <entry key="Profiler Session" value="13" />
-          <entry key="Python" value="239" />
+          <entry key="Python" value="247" />
           <entry key="SQL" value="4" />
           <entry key="UML" value="1" />
         </counts>
@@ -101,15 +106,15 @@
           <entry key="__main__" value="50" />
           <entry key="demo" value="4" />
           <entry key="dummy" value="14" />
-          <entry key="py" value="24032" />
+          <entry key="py" value="24128" />
           <entry key="pyw" value="2466" />
-          <entry key="txt" value="180" />
+          <entry key="txt" value="181" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="194" />
-          <entry key="Python" value="26594" />
+          <entry key="PLAIN_TEXT" value="195" />
+          <entry key="Python" value="26690" />
         </counts>
       </usages-collector>
     </session>
@@ -119,25 +124,57 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Object/Object.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+            <state relative-caret-position="2703">
+              <caret line="164" column="21" selection-start-line="164" selection-start-column="21" selection-end-line="164" selection-end-column="21" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
-                <marker date="1543320665851" expanded="true" signature="1290:1328" ph="..." />
-                <marker date="1543320665851" expanded="true" signature="2146:2206" ph="..." />
+                <marker date="1543322892553" expanded="true" signature="1290:1328" ph="..." />
+                <marker date="1543322892553" expanded="true" signature="2146:2206" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Tools/fileio.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Tools/Graph Snapshot.pyw">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="57" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+                <marker date="1542757167386" expanded="true" signature="157:4079" ph="..." />
+                <marker date="1542757167386" expanded="true" signature="4184:4750" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Tools/Graph Live.pyw">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="17" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Environment/Blueprint.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1139">
-              <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+            <state relative-caret-position="204">
+              <caret line="15" column="15" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <marker date="1542757398664" expanded="true" signature="3413:3414" ph="..." />
@@ -148,10 +185,49 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Operational_Logic/Population.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1309">
+              <caret line="79" column="71" selection-start-line="79" selection-start-column="71" selection-end-line="79" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Utility/AICanvas.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Utility/Frame.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Tools/GraphInput.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="952">
+              <caret line="56" selection-start-line="56" selection-end-line="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/__main__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+            <state relative-caret-position="51">
+              <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -257,12 +333,12 @@
         <option value="$PROJECT_DIR$/src/Auto Driving AI.pyw.py" />
         <option value="$PROJECT_DIR$/src/demo.py" />
         <option value="$PROJECT_DIR$/src/Auto Driving AI.pyw" />
-        <option value="$PROJECT_DIR$/src/Tools/GraphInput.txt" />
         <option value="$PROJECT_DIR$/src/Tools/Graph Snapshot.pyw" />
         <option value="$PROJECT_DIR$/src/Tools/Graph Live.pyw" />
         <option value="$PROJECT_DIR$/src/__main__.py" />
-        <option value="$PROJECT_DIR$/src/Environment/Blueprint.py" />
         <option value="$PROJECT_DIR$/src/Object/Object.py" />
+        <option value="$PROJECT_DIR$/src/Tools/GraphInput.txt" />
+        <option value="$PROJECT_DIR$/src/Environment/Blueprint.py" />
       </list>
     </option>
   </component>
@@ -273,10 +349,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-275" />
-    <option name="y" value="250" />
-    <option name="width" value="1940" />
-    <option name="height" value="1080" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1098" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -465,6 +541,9 @@
       <module name="AutoDrivingCar" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -568,10 +647,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <frame x="-6" y="-6" width="1292" height="732" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.738255" visible="true" weight="0.21409395" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.738255" visible="true" weight="0.18365696" />
       <window_info id="Structure" order="1" sideWeight="0.26174498" side_tool="true" weight="0.20268457" />
       <window_info id="Favorites" order="2" sideWeight="0.51171875" side_tool="true" weight="0.18389262" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -582,9 +661,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32885906" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32214764" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.50242716" visible="true" weight="0.32006633" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.49261746" side_tool="true" weight="0.3261745" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.4975728" side_tool="true" visible="true" weight="0.32006633" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.5073826" weight="0.3261745" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="12" sideWeight="0.51946306" weight="0.29798657" />
       <window_info anchor="bottom" id="Python Console" order="13" sideWeight="0.45973155" weight="0.24295302" />
@@ -824,13 +903,6 @@ self.count == 50</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utility/AICanvas.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://JavaScript-modules-diagram/E:/Projects/Project-GA/AutoDrivingCar">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -885,13 +957,6 @@ self.count == 50</expression-string>
           </Categories>
           <SCOPE>All</SCOPE>
           <VISIBILITY>Details</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utility/Frame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1018,20 +1083,6 @@ self.count == 50</expression-string>
     <entry file="file://$PROJECT_DIR$/src/__main__.pyw" />
     <entry file="file://$PROJECT_DIR$/src/Tools/Graph Snapshot.py" />
     <entry file="file://$PROJECT_DIR$/src/Auto Driving AI.pyw.py" />
-    <entry file="file://$PROJECT_DIR$/src/Operational_Logic/DNA.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tools/fileio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Object/Radar.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1067,20 +1118,36 @@ self.count == 50</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Operational_Logic/Population.py">
+    <entry file="file://$PROJECT_DIR$/src/Operational_Logic/DNA.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="68" column="40" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
+        <state relative-caret-position="85">
+          <caret line="5" column="46" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tools/GraphInput.txt">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/Object/Object.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2703">
+          <caret line="164" column="21" selection-start-line="164" selection-start-column="21" selection-end-line="164" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+            <marker date="1543322892553" expanded="true" signature="1290:1328" ph="..." />
+            <marker date="1543322892553" expanded="true" signature="2146:2206" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tools/fileio.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Tools/Graph Snapshot.pyw">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="57" />
+        <state relative-caret-position="357">
+          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="57" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
             <marker date="1542757167386" expanded="true" signature="157:4079" ph="..." />
@@ -1091,15 +1158,46 @@ self.count == 50</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Tools/Graph Live.pyw">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="136">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Operational_Logic/Population.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1309">
+          <caret line="79" column="71" selection-start-line="79" selection-start-column="71" selection-end-line="79" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Utility/AICanvas.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Utility/Frame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tools/GraphInput.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/__main__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+        <state relative-caret-position="51">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -1108,24 +1206,12 @@ self.count == 50</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Environment/Blueprint.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1139">
-          <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+        <state relative-caret-position="204">
+          <caret line="15" column="15" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <marker date="1542757398664" expanded="true" signature="3413:3414" ph="..." />
             <marker date="1542757398664" expanded="true" signature="3413:3421" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Object/Object.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <marker date="1543320665851" expanded="true" signature="1290:1328" ph="..." />
-            <marker date="1543320665851" expanded="true" signature="2146:2206" ph="..." />
           </folding>
         </state>
       </provider>
