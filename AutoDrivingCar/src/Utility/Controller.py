@@ -1,4 +1,4 @@
-from tkinter import *
+from Object.Enum import CONST
 
 
 class Controller:
@@ -27,7 +27,7 @@ class Controller:
         _speed_limit = speed_limit
 
         global _accelerate
-        _accelerate = 0
+        _accelerate = CONST.INITIALIZE_ZERO
 
         self.key_binding()
 

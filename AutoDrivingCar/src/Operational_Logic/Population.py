@@ -1,6 +1,8 @@
 from random import *
 from mpmath import floor
+from Tools.fileio import fileio
 from .DNA import DNA
+from Object.Enum import CONST
 
 
 class Population:
@@ -10,6 +12,7 @@ class Population:
         self._population = []
         self._mutation_rate = mutation_rate
         self._populationNo = populationNo
+        self._fitness_list = []
 
     @property
     def population(self):
@@ -20,13 +23,14 @@ class Population:
         return self._mutation_rate
 
     def Calc_Fitness(self):
-        print("")
+        file = fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).read_file()
+
 
     def natural_selection(self):
         print("")
 
     def generate(self):
-        max_fitness = 0
+        max_fitness = CONST.INITIALIZE_ZERO
         selected_population: None = self.kill_population(self._population)
 
         for i in range(len(selected_population)):
@@ -41,12 +45,12 @@ class Population:
             child.mutation(self._mutation_rate)
             self._population[i] = child
 
-        self._generation += 1
+        self._generation += CONST.COUNT_INC
 
     def init_population(self):
         for i in range(self._populationNo):
-            #self._population.append(DNA(randint(5, 10), randint(100, 200), self.init_ratio()))
             self._population.append(DNA(randint(5, 10), randint(100, 200), self.init_ratio()))
+            self._fitness_list.insert(len(self._fitness_list),[CONST.INITIALIZE_ZERO,CONST.INITIALIZE_ZERO])
         return self._population
 
     def init_ratio(self):
@@ -63,7 +67,7 @@ class Population:
 
     @staticmethod
     def get_average_fitness(population):
-        total = 0
+        total = CONST.INITIALIZE_ZERO
         for i in range(len(population)):
             total += population[i].fitness
         return total / population.length
@@ -73,7 +77,7 @@ class Population:
 
     @staticmethod
     def Pick_one(selected_population, max_fitness):
-        while 1:
+        while True:
             probability = random.choice(max_fitness)
             index = floor(random.choice(len(selected_population)))
 

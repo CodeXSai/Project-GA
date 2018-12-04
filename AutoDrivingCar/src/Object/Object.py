@@ -14,24 +14,22 @@ class Object:
         self._frame = frame
         self._type = ObjType
         self._coordinates = ObjPosY
-        self._accelerate = 0
+        self._accelerate = CONST.INITIALIZE_ZERO
         self._dna = dna
         self._index = index
-        self._dirFlag = 1
+        self._dirFlag = CONST.INITIALIZE_ONE
         self._lane = lane
         self.collide = False
         self._cwd = cwd
         self.start_state = False
 
         if dna.ratio is None:
-            self._ratio = (0, 0, 0)
+            self._ratio = (CONST.INITIALIZE_ZERO, CONST.INITIALIZE_ZERO, CONST.INITIALIZE_ZERO)
         else:
             self._ratio = dna.ratio
 
         self._Points = [(ObjPosX, ObjPosY), (ObjPosX + ObjLength, ObjPosY), (ObjPosX + ObjLength, ObjPosY + ObjWidth),
                         (ObjPosX, ObjPosY + ObjWidth)]
-        # self.centroid(self._Points)
-        # self.init_radar(dna.radius*dna.ratio[0], dna.radius *dna.ratio[1], dna.radius *dna.ratio[2], aicanvas, "yellow", "green", "red")
         self._Shape = self._frame.canvas.create_polygon(self._Points, fill=SquareColour)
         self.object_coords()
 
@@ -126,64 +124,63 @@ class Object:
         return self._frame.canvas.coords(self._Shape)[0] > self._frame.root.winfo_screenwidth()
 
     def move(self, obj):
-        speed_strike = .01
         colour = self.fuzzy_logic(obj)  # Calling Fuzzy Logic
 
         if self.collide is True:
             if self._accelerate > 0:
-                self._accelerate -= speed_strike
-        elif colour is "yellow" and self.collide is False:
+                self._accelerate -= CONST.ACCELERATION
+        elif colour is COLOUR.YELLOW and self.collide is False:
             if self._dirFlag == 2:
                 if self._accelerate < self._speed_limit:
-                    self._accelerate += speed_strike
+                    self._accelerate += CONST.ACCELERATION
             else:
                 self._dirFlag = 1
                 if self._accelerate > 0:
-                    self._accelerate -= speed_strike / 2
-        elif colour is "green" and self.collide is False:
+                    self._accelerate -= CONST.ACCELERATION / 2
+        elif colour is COLOUR.GREEN and self.collide is False:
             self._dirFlag = 2
-        elif colour is "red" and self.collide is False:
+        elif colour is COLOUR.RED and self.collide is False:
             self._dirFlag = 0
             if self._accelerate > 0:
-                self._accelerate -= speed_strike
-        elif colour is "blue":
+                self._accelerate -= CONST.ACCELERATION
+        elif colour is COLOUR.BLUE:
             self.collide = True
             if self._accelerate > 0:
-                self._accelerate -= speed_strike
+                self._accelerate -= CONST.ACCELERATION
         else:
             self._dirFlag = 3
             if self._accelerate < self._speed_limit:
-                self._accelerate += speed_strike
+                self._accelerate += CONST.ACCELERATION
         self._frame.canvas.move(self._Shape, self._accelerate, 0)
         if self.border_check():
             self.changeCoords()
 
         if self.start_state is False:
             self.start_state = True
-            l = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"), ",", str(self._accelerate), ",black", ",",
-                 str(self.index), "\n"]
+            l = [datetime.datetime.now().strftime(CONST.DATETIME_FORMAT), ",", str(self._accelerate), ",black", ",",
+                 str(self.index), CONST.NEW_LINE]
             stri = "".join(l)
-            fileio(self._cwd + '\Tools\GraphInput.txt').write_file(stri)
-        elif colour is "yellow":
-            l = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"), ",", str(self._accelerate), ",y", ",",
-                 str(self.index), "\n"]
+            fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).write_file(stri)
+        elif colour is COLOUR.YELLOW:
+            l = [datetime.datetime.now().strftime(CONST.DATETIME_FORMAT), ",", str(self._accelerate), ",y", ",",
+                 str(self.index), CONST.NEW_LINE]
             stri = "".join(l)
-            fileio(self._cwd + '\Tools\GraphInput.txt').write_file(stri)
-        elif colour is "green":
-            l = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"), ",", str(self._accelerate), ",g", ",",
-                 str(self.index), "\n"]
+            fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).write_file(stri)
+        elif colour is COLOUR.GREEN:
+            l = [datetime.datetime.now().strftime(CONST.DATETIME_FORMAT), ",", str(self._accelerate), ",g", ",",
+                 str(self.index), CONST.NEW_LINE]
             stri = "".join(l)
-            fileio(self._cwd + '\Tools\GraphInput.txt').write_file(stri)
-        elif colour is "red":
-            l = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"), ",", str(self._accelerate), ",r", ",",
-                 str(self.index), "\n"]
+            fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).write_file(stri)
+        elif colour is COLOUR.RED:
+            l = [datetime.datetime.now().strftime(CONST.DATETIME_FORMAT), ",", str(self._accelerate), ",r", ",",
+                 str(self.index), CONST.NEW_LINE]
             stri = "".join(l)
-            fileio(self._cwd + '\Tools\GraphInput.txt').write_file(stri)
-        elif colour is "blue":
-            l = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"), ",", str(self._accelerate), ",blue", ",",
-                 str(self.index), "\n"]
+            fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).write_file(stri)
+        elif colour is COLOUR.BLUE:
+            l = [datetime.datetime.now().strftime(CONST.DATETIME_FORMAT), ",", str(self._accelerate), ",blue", ",",
+                 str(self.index), CONST.NEW_LINE]
             stri = "".join(l)
-            fileio(self._cwd + '\Tools\GraphInput.txt').write_file(stri)
+            fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).write_file(stri)
 
     def object_coords(self):
         self._Shape_coords = self._frame.canvas.coords(self._Shape)
@@ -194,7 +191,7 @@ class Object:
         col_obj = None
         previous_obj = copy.copy(col_obj)
         col_dist = 1000000000
-        colour = "white"
+        colour = COLOUR.WHITE
         l = []
 
         xy = self.centroid()
@@ -211,7 +208,7 @@ class Object:
                             if col_dist > (obj[i].front_back()[1][0] - self.front_back()[0][0]):
                                 col_dist = (obj[i].front_back()[1][0] - self.front_back()[0][0])
                                 col_obj = obj[i]
-                            colour = "yellow"
+                            colour = COLOUR.YELLOW
 
                         elif (self._dna.radius * self._dna.ratio[1] + xy[0]) >= obj[i].front_back()[1][0] \
                                 and (self._dna.radius * self._dna.ratio[2] + xy[0]) < obj[i].front_back()[1][0] \
@@ -219,19 +216,19 @@ class Object:
                             if col_dist > (obj[i].front_back()[1][0] - self.front_back()[0][0]):
                                 col_dist = (obj[i].front_back()[1][0] - self.front_back()[0][0])
                                 col_obj = obj[i]
-                            colour = "green"
+                            colour = COLOUR.GREEN
 
                         elif (self._dna.radius * self._dna.ratio[2] + xy[0]) >= obj[i].front_back()[1][0] \
                                 and self.front_back()[0][0] < obj[i].front_back()[1][0]:
                             if col_dist > (obj[i].front_back()[1][0] - self.front_back()[0][0]):
                                 col_dist = (obj[i].front_back()[1][0] - self.front_back()[0][0])
                                 col_obj = obj[i]
-                            colour = "red"
+                            colour = COLOUR.RED
 
                         elif self.front_back()[0][0] >= obj[i].front_back()[1][0] \
                                 and self.front_back()[1][0] <= obj[i].front_back()[1][0]:
-                            colour = "blue"
-                            self._frame.canvas.itemconfig(self._Shape, fill="blue")
+                            colour = COLOUR.BLUE
+                            self._frame.canvas.itemconfig(self._Shape, fill=COLOUR.BLUE)
                             col_dist = 1000000000
                             self._frame.canvas.delete(self.col_line)
                             col_obj = None
@@ -258,6 +255,5 @@ class Object:
 
     #################################################   Fuzzy Logic End   ##################################################
 
-    #TODO: Read the life duration of the object.
-    def calc_fitness(self):
-        file = fileio(self._cwd + '\Tools\GraphInput.txt').read_file()
+
+

@@ -4,29 +4,31 @@ from Operational_Logic.DNA import DNA
 from Operational_Logic.Population import Population
 from Object.Object import Object
 from Tools.fileio import fileio
-from Object.Enum import *
+from Object.Enum import CONST
+from Object.Enum import Type
+
 
 
 class Blueprint:
 
     def __init__(self, cwd):
-        self.obj_count = 0
+        self.obj_count = CONST.INITIALIZE_ZERO
         self.Population = Population(500, 1)
         self._population = self.Population.init_population()
-        self._generation = 0
-        self.count = 50
+        self._generation = CONST.INITIALIZE_ZERO
+        self.count = CONST.OBJECT_CREATION_DELAY
         self._cwd = cwd
 
-        fileio(self._cwd+'\Tools\GraphInput.txt').file_flush()
+        fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).file_flush()
         self._frame = Frame()
-        self._frame.init_frame("fullscreen", "main")
+        self._frame.init_frame(CONST.FRAME_SIZE, CONST.TITLE)
         #self.init_blueprint_test()
         self.init_road()
         self.update()
         self._frame.frame_loop()
 
     def init_blueprint_test(self):
-        l=[]
+        l= []
         dna = DNA(20, 150, (1, 0.5, 0.35))
         car = Object(dna, self._frame.canvas, self._frame, Type.CAR, 50,
                           self.Yaxis(self.car_coordinates_list()[0][0], self.car_coordinates_list()[0][1]), 55, 17.5,
@@ -118,7 +120,7 @@ class Blueprint:
         lane_no = (end - start)/3
 
         for i in range(2):
-            lane_bar = 0
+            lane_bar = CONST.INITIALIZE_ZERO
             while lane_bar < self._frame.root.winfo_screenwidth():
                 self._frame.canvas.create_rectangle(lane_bar, start + lane_no - 2.5, lane_bar+20,
                                                     start + lane_no + 2.5, fill="white")
@@ -134,14 +136,14 @@ class Blueprint:
         return [(35, 92.5), (97.5, 152.5), (157.5, 215), (265, 322.5), (327.5, 382.5), (387.5, 445), (495, 552.5), (557.5, 612.5), (617.5, 675)]
 
     def create_obj(self, obj):
-        y = randint(0, 8)
+        y = randint(CONST.FIRST_LANE, CONST.LAST_LANE)
 
-        if self.count == 50 and self.obj_count < len(self._population):
+        if self.count == CONST.OBJECT_CREATION_DELAY and self.obj_count < len(self._population):
             obj[y].insert(len(obj[y]), Object(self._population[self.obj_count], self._frame, Type.CAR, -210,
                               self.Yaxis(self.car_coordinates_list()[y][0], self.car_coordinates_list()[y][1]), 55,
                               17.5, "white", self.obj_count, y, self._cwd))
-            self.obj_count += 1
-            self.count = 0
+            self.obj_count += CONST.COUNT_INC
+            self.count = CONST.INITIALIZE_ZERO
 
         return obj
 
@@ -153,19 +155,19 @@ class Blueprint:
 
     def draw(self):
         obj = []
-        for i in range(9):
+        for i in range(CONST.ROAD_LANE):
             obj.insert(len(obj), [])
         while True:
             obj = self.create_obj(obj)
             self.move(obj)
-            self.count += 1
+            self.count += CONST.COUNT_INC
             self._frame.canvas.itemconfig( self._GC, text=self.obj_count)
             self._frame.root.after_idle(self.update)
             yield
 
     def update(self):
         self.update = self.draw().__next__
-        self._frame._root.after(1, self.update)
+        self._frame._root.after(CONST.UPDATE_FRAME_TIME_DELAY, self.update)
 
     def update_score(self):
         self._frame.canvas.create_text(652, 730, fill="white", font="Times 15 bold", text="Population : ")

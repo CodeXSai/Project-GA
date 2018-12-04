@@ -52,7 +52,7 @@ class DNA:
         return newDNA
 
     def mutation(self, percentage):
-        random = randint(0,1)
+        random = randint(0, 1)
 
         if random is 0:
             if randint(0,1) == 0:

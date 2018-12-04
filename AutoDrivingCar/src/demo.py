@@ -1,1 +1,7 @@
-print("staRt".lower() == "StArT".lower())
+from Object.Enum import *
+
+print(CONST.COUNT_INC)
+print(CONST.INITIALIZE_ZERO)
+print(CONST.OBJECT_CREATION_DELAY == CONST.OBJECT_CREATION_DELAY)
+l = []
+print(l)

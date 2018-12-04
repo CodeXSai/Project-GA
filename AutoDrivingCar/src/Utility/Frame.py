@@ -1,5 +1,6 @@
 from tkinter import *
 from .AICanvas import AICanvas
+from Object.Enum import CONST
 
 
 class Frame:
@@ -25,14 +26,16 @@ class Frame:
 
     def init_frame(self, frame_size, title):
 
-        if frame_size == "fullscreen":
-            self._root.attributes('-fullscreen', True)
+        if frame_size == CONST.FRAME_SIZE:
+            self._root.attributes(CONST.FULL_SCREEN, True)
             self._root.title(title)
-            self._canvas.init_canvas(0, 0, 0, 0)
+            self._canvas.init_canvas(CONST.INITIALIZE_ZERO, CONST.INITIALIZE_ZERO, CONST.INITIALIZE_ZERO,
+                                     CONST.INITIALIZE_ZERO)
         else:
             self._root.attributes(frame_size)
             self._root.title(title)
-            self._canvas.init_canvas(0, 0, 0, 0)
+            self._canvas.init_canvas(CONST.INITIALIZE_ZERO, CONST.INITIALIZE_ZERO, CONST.INITIALIZE_ZERO,
+                                     CONST.INITIALIZE_ZERO)
 
     @root.deleter
     def root(self):

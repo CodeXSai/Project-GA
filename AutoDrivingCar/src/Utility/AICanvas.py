@@ -3,7 +3,6 @@ from tkinter import *
 
 class AICanvas:
 
-
     def __init__(self, root=None, canvas=None):
         if root is not None:
             self._root = root
@@ -12,7 +11,8 @@ class AICanvas:
             self._canvas = canvas
 
     def init_canvas(self, x, y, a, b):
-        self._canvas = Canvas(self._root, width=self._root.winfo_width()-x, height=self._root.winfo_height()-y, borderwidth=a, highlightthickness=b, bg="black")
+        self._canvas = Canvas(self._root, width=self._root.winfo_width() - x, height=self._root.winfo_height() - y,
+                              borderwidth=a, highlightthickness=b, bg="black")
         self._canvas.pack(fill=BOTH, expand=YES)
 
     @property
