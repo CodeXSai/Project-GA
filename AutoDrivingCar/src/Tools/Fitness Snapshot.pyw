@@ -98,9 +98,9 @@ def date_time(date):
 
 
 def display():
-    print("Please select your date-time range for the graph based on the instructions.\n")
+    print("Please select your time range for the graph based on the instructions.\n")
     print("Instructions:\n")
-    print("The date-time format: YYYY-mm-dd HH:MM:SS.ffffff\n")
+    print("The time format: HH:MM:SS.ffffff\n")
     print("If you want to see from the beginning point, please type 'Start'\n")
     print("If you want to see to the last point, please type 'End'\n")
     print("If you want to see all the points, please type 'Now'\n")

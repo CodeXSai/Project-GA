@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08175874-9091-4921-aae8-081cf7817440" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Environment/Blueprint.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Environment/Blueprint.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Object/Enum.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Object/Enum.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Operational_Logic/Population.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Operational_Logic/Population.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tools/GraphInput.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tools/GraphInput.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tools/Fitness Snapshot.pyw" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tools/Fitness Snapshot.pyw" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +15,7 @@
     <SUITE FILE_PATH="coverage/AutoDrivingCar$BaseGround.coverage" NAME="BaseGround Coverage Results" MODIFIED="1540097074265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Environment" />
     <SUITE FILE_PATH="coverage/AutoDrivingCar$Frame.coverage" NAME="Frame Coverage Results" MODIFIED="1540138980972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Utility" />
     <SUITE FILE_PATH="coverage/AutoDrivingCar$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1540147492616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Utility" />
-    <SUITE FILE_PATH="coverage/AutoDrivingCar$Fitness_Snapshot_pyw.coverage" NAME="Fitness Snapshot.pyw Coverage Results" MODIFIED="1544235155103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Tools" />
+    <SUITE FILE_PATH="coverage/AutoDrivingCar$Fitness_Snapshot_pyw.coverage" NAME="Fitness Snapshot.pyw Coverage Results" MODIFIED="1544237015031" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Tools" />
     <SUITE FILE_PATH="coverage/AutoDrivingCar$Graph_Snapshot_pyw.coverage" NAME="Graph Snapshot.pyw Coverage Results" MODIFIED="1542718597400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Tools" />
     <SUITE FILE_PATH="coverage/AutoDrivingCar$__main__.coverage" NAME="__main__ Coverage Results" MODIFIED="1543943284299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/AutoDrivingCar$demo.coverage" NAME="demo Coverage Results" MODIFIED="1544231124878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
@@ -181,8 +176,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Tools/Fitness Snapshot.pyw">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="81" column="43" selection-start-line="81" selection-start-column="43" selection-end-line="81" selection-end-column="43" />
+            <state relative-caret-position="51">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -193,8 +188,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Tools/Graph Snapshot.pyw">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="87" column="21" lean-forward="true" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="21" />
+            <state relative-caret-position="-68">
+              <caret line="41" column="52" lean-forward="true" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
                 <marker date="1542757167386" expanded="true" signature="157:4079" ph="..." />
@@ -633,30 +628,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="202" y="164" width="1551" height="879" extended-state="0" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.738255" visible="true" weight="0.24547283" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.738255" visible="true" weight="0.24563758" />
       <window_info id="Structure" order="1" sideWeight="0.26174498" side_tool="true" weight="0.20268457" />
       <window_info id="Favorites" order="2" sideWeight="0.51171875" side_tool="true" weight="0.18389262" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4986577" weight="0.32885906" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5402685" weight="0.40536913" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.48255032" weight="0.33914208" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.48255032" visible="true" weight="0.33825505" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32885906" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.671521" weight="0.25870648" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.671521" weight="0.25771812" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.32847896" side_tool="true" weight="0.32006633" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.5073826" weight="0.3261745" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="12" sideWeight="0.51946306" weight="0.29798657" />
-      <window_info anchor="bottom" id="Python Console" order="13" sideWeight="0.45973155" visible="true" weight="0.34316355" />
+      <window_info anchor="bottom" id="Python Console" order="13" sideWeight="0.45973155" weight="0.34362417" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" id="SciView" order="3" sideWeight="0.498" visible="true" weight="0.10529846" />
+      <window_info anchor="right" id="SciView" order="3" sideWeight="0.498" visible="true" weight="0.10536913" />
       <window_info anchor="right" id="R Graphics" order="4" weight="0.3295302" />
       <window_info anchor="right" id="R Packages" order="5" sideWeight="0.496" weight="0.3295302" />
       <window_info anchor="right" x="0" y="0" width="337" height="678" id="Documentation" order="6" sideWeight="0.504" side_tool="true" weight="0.19798657" />
@@ -756,6 +750,11 @@
           <url>file://$PROJECT_DIR$/src/Operational_Logic/Population.py</url>
           <line>43</line>
           <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/Tools/Fitness Snapshot.pyw</url>
+          <line>12</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -1208,18 +1207,6 @@ self.count == 50</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tools/Graph Snapshot.pyw">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="87" column="21" lean-forward="true" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <marker date="1542757167386" expanded="true" signature="157:4079" ph="..." />
-            <marker date="1542757167386" expanded="true" signature="4184:4750" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/envs/AutoDrivingCar/Lib/site-packages/matplotlib/axes/_axes.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
@@ -1234,10 +1221,22 @@ self.count == 50</expression-string>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tools/Graph Snapshot.pyw">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-68">
+          <caret line="41" column="52" lean-forward="true" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+            <marker date="1542757167386" expanded="true" signature="157:4079" ph="..." />
+            <marker date="1542757167386" expanded="true" signature="4184:4750" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Tools/Fitness Snapshot.pyw">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="81" column="43" selection-start-line="81" selection-start-column="43" selection-end-line="81" selection-end-column="43" />
+        <state relative-caret-position="51">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
