@@ -13,7 +13,7 @@ class Blueprint:
 
     def __init__(self, cwd):
         self.obj_count = CONST.INITIALIZE_ZERO
-        self.Population = Population(500, 1)
+        self.Population = Population(500, 1, cwd)
         self._population = self.Population.init_population()
         self._generation = CONST.INITIALIZE_ZERO
         self.count = CONST.OBJECT_CREATION_DELAY

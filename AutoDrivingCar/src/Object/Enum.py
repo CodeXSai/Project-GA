@@ -31,9 +31,11 @@ class CONST:
     DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S.%f"
     NEW_LINE = "\n"
     GRAPH_OUTPUT_LOCATION = '\Tools\GraphInput.txt'
+    FITNESS_OUTPUT_LOCATION = '\Tools\FitnessInput.txt'
     FRAME_SIZE = "fullscreen"
     FULL_SCREEN = '-fullscreen'
     TITLE = "Self Driving Simulator"
+    STRING_EMPTY = ""
 
 
 class COLOUR:
@@ -43,5 +45,7 @@ class COLOUR:
     YELLOW = "yellow"
     BLUE = "blue"
     WHITE = "white"
+    BLACK = "black"
+
 
 
