@@ -33,38 +33,33 @@ class DNA:
         return self.time
 
     def crossover(self, partner):
-        if randint(0,1) == 0:
-            child = randint(0,2)
-            if child == 0:
-                newDNA = DNA(self.speed_limit, partner.radius, partner.ratio)
-            elif child == 1:
-                newDNA = DNA(partner.speed_limit, self.radius, partner.ratio)
+
+        try:
+            if randint(0, 1) == 0:
+                child = randint(0, 2)
+                if child == 0:
+                    newDNA = DNA(self.speed_limit, partner.radius, partner.ratio)
+                elif child == 1:
+                    newDNA = DNA(partner.speed_limit, self.radius, partner.ratio)
+                else:
+                    newDNA = DNA(partner.speed_limit, partner.radius, self.ratio)
             else:
-                newDNA = DNA(partner.speed_limit,partner.radius,self.ratio)
-        else:
-            partner = randint(0,2)
-            if partner == 0:
-                newDNA = DNA(partner.speed_limit, self.radius, self.ratio)
-            elif partner == 1:
-                newDNA = DNA(self.speed_limit, partner.radius, self.ratio)
-            else:
-                newDNA = DNA(self.speed_limit,self.radius,partner.ratio)
-        return newDNA
+                partner_selection = randint(0, 2)
+                if partner_selection == 0:
+                    newDNA = DNA(partner.speed_limit, self.radius, self.ratio)
+                elif partner_selection == 1:
+                    newDNA = DNA(self.speed_limit, partner.radius, self.ratio)
+                else:
+                    newDNA = DNA(self.speed_limit, self.radius, partner.ratio)
+            return newDNA
+        except Exception as e:
+            print(e)
 
     def mutation(self, percentage):
-        random = randint(0, 1)
-
-        if random is 0:
-            if randint(0,1) == 0:
-                self._speed_limit -= randint(5,10)* percentage
-            else:
-                self._speed_limit += randint(5,10)* percentage
-
-        else:
-            if randint(0,1) == 0:
-                self._arc_radius -= randint(1,10)*percentage
-            else:
-                self._arc_radius += randint(1,10)*percentage
+        if randint(0, 100) < percentage:
+            self._speed_limit = randint(5, 10)
+        elif randint(0, 100) < percentage:
+            self._arc_radius = randint(100, 200)
 
 
 

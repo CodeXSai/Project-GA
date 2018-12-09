@@ -29,3 +29,6 @@ class AICanvas:
 
     def canvas_loop(self):
         self._canvas.mainloop()
+
+    def del_shape(self, shape):
+        self._canvas.delete(shape)

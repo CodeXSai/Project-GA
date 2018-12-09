@@ -1,3 +1,4 @@
+import datetime
 from random import randint
 from Utility.Frame import Frame
 from Operational_Logic.DNA import DNA
@@ -12,71 +13,24 @@ from Object.Enum import Type
 class Blueprint:
 
     def __init__(self, cwd):
-        self.obj_count = CONST.INITIALIZE_ZERO
-        self.Population = Population(500, 1, cwd)
+
+        self.Population = Population(200, 1, cwd)
         self._population = self.Population.init_population()
-        self._generation = CONST.INITIALIZE_ZERO
-        self.count = CONST.OBJECT_CREATION_DELAY
+
+        self._generation = CONST.INITIALIZE_ONE
         self._cwd = cwd
 
+        self._grace = False
+
+        self.count = CONST.OBJECT_CREATION_DELAY
+        self.obj_count = CONST.INITIALIZE_ZERO
+
         fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).file_flush()
+
         self._frame = Frame()
         self._frame.init_frame(CONST.FRAME_SIZE, CONST.TITLE)
-        #self.init_blueprint_test()
         self.init_road()
-        self.update()
-        self._frame.frame_loop()
-
-    def init_blueprint_test(self):
-        l= []
-        dna = DNA(20, 150, (1, 0.5, 0.35))
-        car = Object(dna, self._frame.canvas, self._frame, Type.CAR, 50,
-                          self.Yaxis(self.car_coordinates_list()[0][0], self.car_coordinates_list()[0][1]), 55, 17.5,
-                          "white")
-
-
-
-        dna = DNA(20, 150, (1, 0.5, 0.35))
-        car1 = Object(dna, self._frame.canvas, self._frame, Type.CAR, 500,
-                          self.Yaxis(self.car_coordinates_list()[0][0], self.car_coordinates_list()[0][1]), 55, 17.5,
-                          "white")
-        l.insert(len(l), car.front_back())
-        l.insert(len(l), car1.front_back())
-        print(car1.front_back())
-
-        print([l[0][0][0], l[0][0][1], l[1][1][0], l[1][1][1]])
-        self._frame.canvas.create_line(l[0][0][0], l[0][0][1], l[1][1][0], l[1][1][1], fill="green")
-
-        '''
-        car = Object(5, 150, self._frame.canvas, self._frame, Type.CAR, 0,
-                     self.Yaxis(self.car_coordinates_list()[1][0], self.car_coordinates_list()[1][1]), 55, 17.5,
-                     "white")
-        car = Object(5, 150, self._frame.canvas, self._frame, Type.CAR, 0,
-                     self.Yaxis(self.car_coordinates_list()[2][0], self.car_coordinates_list()[2][1]), 55, 17.5,
-                     "white")
-
-        car = Object(5, 150, self._frame.canvas, self._frame, Type.CAR, 0,
-                     self.Yaxis(self.car_coordinates_list()[3][0], self.car_coordinates_list()[3][1]), 55, 17.5,
-                     "white")
-        car = Object(5, 150, self._frame.canvas, self._frame, Type.CAR, 0,
-                     self.Yaxis(self.car_coordinates_list()[4][0], self.car_coordinates_list()[4][1]), 55, 17.5,
-                     "white")
-        car = Object(5, 150, self._frame.canvas, self._frame, Type.CAR, 0,
-                     self.Yaxis(self.car_coordinates_list()[5][0], self.car_coordinates_list()[5][1]), 55, 17.5,
-                     "white")
-
-        car = Object(5, 150, self._frame.canvas, self._frame, Type.CAR, 0,
-                     self.Yaxis(self.car_coordinates_list()[6][0], self.car_coordinates_list()[6][1]), 55, 17.5,
-                     "white")
-        car = Object(5, 150, self._frame.canvas, self._frame, Type.CAR, 0,
-                     self.Yaxis(self.car_coordinates_list()[7][0], self.car_coordinates_list()[7][1]), 55, 17.5,
-                     "white")
-        car = Object(5, 150, self._frame.canvas, self._frame, Type.CAR, -210,
-                     self.Yaxis(self.car_coordinates_list()[8][0], self.car_coordinates_list()[8][1]), 55, 17.5,
-                     "white")
-        '''
-
-
+        self.generation()
 
     def init_road(self):
         self._frame.canvas.create_rectangle(0, 0, self._frame.root.winfo_screenwidth(),
@@ -109,10 +63,10 @@ class Blueprint:
         self._frame.canvas.create_text(1311, 730, fill="white", font="Times 15 bold", text="Population Created : ")
 
         self._P = self._frame.canvas.create_text(808, 730, fill="white", font="Times 15 bold", text=self.Population.population)
-        self._G = self._frame.canvas.create_text(808, 760, fill="white", font="Times 15 bold", text="210")
+        self._G = self._frame.canvas.create_text(808, 760, fill="white", font="Times 15 bold", text=self._generation)
         self._M = self._frame.canvas.create_text(808, 790, fill="white", font="Times 15 bold", text= self.Population.mutation_rate)
         self._F = self._frame.canvas.create_text(808, 820, fill="white", font="Times 15 bold", text="224")
-        self._EP = self._frame.canvas.create_text(808, 850, fill="white", font="Times 15 bold", text="10000")
+        self._EP = self._frame.canvas.create_text(808, 850, fill="white", font="Times 15 bold", text="00")
         self._GC = self._frame.canvas.create_text(1451, 730, fill="white", font="Times 15 bold", text="0")
 
 
@@ -147,31 +101,98 @@ class Blueprint:
 
         return obj
 
-    def move(self, objects):
+    def move(self, objects, obj_count=None, popul_len=None, graph_delay=None):
+        if obj_count is None:
+            obj_count = self.obj_count
+
+        if popul_len is None:
+            popul_len = len(self._population)
+
+        if graph_delay is None:
+            graph_delay = self.graph_delay
+
         for i in range(len(objects)):
             for j in range(len(objects[i])):
                 if objects[i][j].is_collide() is not True or objects[i][j].accelerate() >= 0:
-                    objects[i][j].move(objects[i])
+                    objects[i][j].move(objects[i], obj_count, popul_len, graph_delay)
 
     def draw(self):
         obj = []
+        self.graph_delay = CONST.INITIALIZE_ZERO
+        self.Ep = CONST.EXTINGUISHING_PERIOD
         for i in range(CONST.ROAD_LANE):
             obj.insert(len(obj), [])
         while True:
             obj = self.create_obj(obj)
+
             self.move(obj)
             self.count += CONST.COUNT_INC
             self._frame.canvas.itemconfig( self._GC, text=self.obj_count)
             self._frame.root.after_idle(self.update)
+
+            if self.obj_count is self.Population.population:
+
+                self._frame.canvas.itemconfig(self._EP, text=self.Ep)
+                self.Ep -= CONST.COUNT_DEC
+
+                if self._grace is False:
+                    self.graph_delay = CONST.GRAPH_DELAY
+                    self._grace = True
+                    self.delay = datetime.datetime.now() +datetime.timedelta(seconds=CONST.DELAY_AFTER_ALL_POPULATION)
+                else:
+                    if self.graph_delay is CONST.GRAPH_DELAY:
+                        self.graph_delay = CONST.INITIALIZE_ZERO
+                    else:
+                        self.graph_delay += CONST.COUNT_INC
+
+                if self.delay <= datetime.datetime.now():
+                    self.reset(obj)
             yield
 
     def update(self):
+
         self.update = self.draw().__next__
         self._frame._root.after(CONST.UPDATE_FRAME_TIME_DELAY, self.update)
+        self._frame.frame_loop()
 
     def update_score(self):
         self._frame.canvas.create_text(652, 730, fill="white", font="Times 15 bold", text="Population : ")
         self._frame.canvas.create_text(609, 760, fill="white", font="Times 15 bold", text="Generation Strength : ")
         self._frame.canvas.create_text(611, 790, fill="white", font="Times 15 bold", text="Generation Created : ")
         self._frame.canvas.create_text(666, 820, fill="white", font="Times 15 bold", text="Fitness : ")
-        self._frame.canvas.create_text(608, 850, fill="white", font="Times 15 bold", text="Extinguishing Peirod : ")
+        self._frame.canvas.create_text(608, 850, fill="white", font="Times 15 bold", text="Extinguishing Period : ")
+
+    def generation(self):
+        self.update()
+
+    def destroy_obj(self, obj):
+        for i in range(len(obj)):
+            for j in range(len(obj[i])):
+                self._frame.del_shape(obj[i][j].Shape)
+            obj[i] = []
+        self.obj_count = CONST.INITIALIZE_ZERO
+
+    def reset(self, obj):
+        self.move(obj, len(self._population), len(self._population), CONST.GRAPH_DELAY)
+        self.destroy_obj(obj)
+        self._generation += CONST.COUNT_INC
+        self._grace = False
+        self.count = 50
+        self._frame.canvas.itemconfig(self._G, text=self._generation)
+        self.Ep = CONST.EXTINGUISHING_PERIOD
+        self._frame.canvas.itemconfig(self._EP, text=self.Ep)
+        self.Population.Calc_Fitness()
+        fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).file_flush()
+        self._population = self.Population.next_generate()
+
+
+
+
+
+
+
+
+
+
+
+

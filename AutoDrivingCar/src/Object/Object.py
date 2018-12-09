@@ -40,6 +40,10 @@ class Object:
         return self._accelerate
 
     @property
+    def Shape(self):
+        return self._Shape
+
+    @property
     def speed_limit(self):
         return self._speed_limit
 
@@ -123,7 +127,7 @@ class Object:
     def border_check(self):
         return self._frame.canvas.coords(self._Shape)[0] > self._frame.root.winfo_screenwidth()
 
-    def move(self, obj):
+    def move(self, obj, popul_created, total_popul, graph_delay):
         colour = self.fuzzy_logic(obj)  # Calling Fuzzy Logic
 
         if self.collide is True:
@@ -155,32 +159,7 @@ class Object:
         if self.border_check():
             self.changeCoords()
 
-        if self.start_state is False:
-            self.start_state = True
-            l = [datetime.datetime.now().strftime(CONST.DATETIME_FORMAT), ",", str(self._accelerate), ",black", ",",
-                 str(self.index), CONST.NEW_LINE]
-            stri = "".join(l)
-            fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).write_file(stri)
-        elif colour is COLOUR.YELLOW:
-            l = [datetime.datetime.now().strftime(CONST.DATETIME_FORMAT), ",", str(self._accelerate), ",y", ",",
-                 str(self.index), CONST.NEW_LINE]
-            stri = "".join(l)
-            fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).write_file(stri)
-        elif colour is COLOUR.GREEN:
-            l = [datetime.datetime.now().strftime(CONST.DATETIME_FORMAT), ",", str(self._accelerate), ",g", ",",
-                 str(self.index), CONST.NEW_LINE]
-            stri = "".join(l)
-            fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).write_file(stri)
-        elif colour is COLOUR.RED:
-            l = [datetime.datetime.now().strftime(CONST.DATETIME_FORMAT), ",", str(self._accelerate), ",r", ",",
-                 str(self.index), CONST.NEW_LINE]
-            stri = "".join(l)
-            fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).write_file(stri)
-        elif colour is COLOUR.BLUE:
-            l = [datetime.datetime.now().strftime(CONST.DATETIME_FORMAT), ",", str(self._accelerate), ",blue", ",",
-                 str(self.index), CONST.NEW_LINE]
-            stri = "".join(l)
-            fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).write_file(stri)
+        self.record_graph(colour, popul_created, total_popul, graph_delay)
 
     def object_coords(self):
         self._Shape_coords = self._frame.canvas.coords(self._Shape)
@@ -226,7 +205,7 @@ class Object:
                             colour = COLOUR.RED
 
                         elif self.front_back()[0][0] >= obj[i].front_back()[1][0] \
-                                and self.front_back()[1][0] <= obj[i].front_back()[1][0]:
+                                and self.front_back()[1][0] <= obj[i].front_back()[1][0] and self.start_state:
                             colour = COLOUR.BLUE
                             self._frame.canvas.itemconfig(self._Shape, fill=COLOUR.BLUE)
                             col_dist = 1000000000
@@ -254,6 +233,39 @@ class Object:
         return colour
 
     #################################################   Fuzzy Logic End   ##################################################
+
+    def record_graph(self, colour, popul_created, total_popul, graph_delay):
+        if self.start_state is False:
+            self.start_state = True
+            l = [datetime.datetime.now().strftime(CONST.DATETIME_FORMAT), ",", str(self._accelerate), ",black", ",",
+                 str(self.index), CONST.NEW_LINE]
+            stri = "".join(l)
+            fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).write_file(stri)
+        elif colour is COLOUR.YELLOW:
+            l = [datetime.datetime.now().strftime(CONST.DATETIME_FORMAT), ",", str(self._accelerate), ",y", ",",
+                 str(self.index), CONST.NEW_LINE]
+            stri = "".join(l)
+            fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).write_file(stri)
+        elif colour is COLOUR.GREEN:
+            l = [datetime.datetime.now().strftime(CONST.DATETIME_FORMAT), ",", str(self._accelerate), ",g", ",",
+                 str(self.index), CONST.NEW_LINE]
+            stri = "".join(l)
+            fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).write_file(stri)
+        elif colour is COLOUR.RED:
+            l = [datetime.datetime.now().strftime(CONST.DATETIME_FORMAT), ",", str(self._accelerate), ",r", ",",
+                 str(self.index), CONST.NEW_LINE]
+            stri = "".join(l)
+            fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).write_file(stri)
+        elif colour is COLOUR.BLUE:
+            l = [datetime.datetime.now().strftime(CONST.DATETIME_FORMAT), ",", str(self._accelerate), ",blue", ",",
+                 str(self.index), CONST.NEW_LINE]
+            stri = "".join(l)
+            fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).write_file(stri)
+        elif popul_created is total_popul and graph_delay is CONST.GRAPH_DELAY:
+            l = [datetime.datetime.now().strftime(CONST.DATETIME_FORMAT), ",", str(self._accelerate), ",orange", ",",
+                 str(self.index), CONST.NEW_LINE]
+            stri = "".join(l)
+            fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).write_file(stri)
 
 
 

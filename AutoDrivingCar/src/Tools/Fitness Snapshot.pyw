@@ -16,7 +16,7 @@ def animate(a, b):
         yss = []
 
         plt.clf()
-        plt.setp(plt.gca().get_xticklabels(), rotation=90, horizontalalignment='right')
+        #plt.setp(plt.gca().get_xticklabels(), rotation=90, horizontalalignment='right')
         plt.xlabel('Life Cycle')
         plt.ylabel('Vehicle Index')
         graph_data = open(os.getcwd() + '\FitnessInput.txt', 'r')

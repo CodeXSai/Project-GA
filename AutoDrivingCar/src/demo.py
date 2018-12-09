@@ -1,10 +1,7 @@
-from datetime import datetime, timedelta
-from Object.Enum import CONST
+import os
 
-def date_time(date):
-    return datetime.strptime(date, "%Y-%m-%d %H:%M:%S.%f")
+from Operational_Logic.Population import *
 
-
-d = date_time("2018-12-06 14:12:40.280939") - timedelta(day="2018-12-05 14:12:40.280938")
-print(d)
-
+p = Population(200, 1, os.getcwd())
+p.init_population()
+p.Calc_Fitness()

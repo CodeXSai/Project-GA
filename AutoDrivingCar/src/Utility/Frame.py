@@ -48,3 +48,9 @@ class Frame:
 
     def frame_loop(self):
         self._root.mainloop()
+
+    def exit_frame_loop(self):
+        self._root.destroy()
+
+    def del_shape(self, shape):
+        self._canvas.del_shape(shape)
