@@ -14,7 +14,7 @@ class Blueprint:
 
     def __init__(self, cwd):
 
-        self.Population = Population(200, 1, cwd)
+        self.Population = Population(50, 1, cwd)
         self._population = self.Population.init_population()
 
         self._generation = CONST.INITIALIZE_ONE
@@ -25,7 +25,11 @@ class Blueprint:
         self.count = CONST.OBJECT_CREATION_DELAY
         self.obj_count = CONST.INITIALIZE_ZERO
 
+        fileio(self._cwd + CONST.GENERATION_FITNESS_LOCATION_CACHE).file_flush()
+        fileio(self._cwd + CONST.GENERATION_FITNESS_LOCATION_CACHE).write_file("0:00:00.000000,0"+CONST.NEW_LINE)
         fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).file_flush()
+        fileio(self._cwd + CONST.DATA_LOCATION)
+        self._gen_file = fileio(self._cwd).create_folder(str(datetime.datetime.now()).replace(":", "."), CONST.DATA_LOCATION)
 
         self._frame = Frame()
         self._frame.init_frame(CONST.FRAME_SIZE, CONST.TITLE)
@@ -65,8 +69,8 @@ class Blueprint:
         self._P = self._frame.canvas.create_text(808, 730, fill="white", font="Times 15 bold", text=self.Population.population)
         self._G = self._frame.canvas.create_text(808, 760, fill="white", font="Times 15 bold", text=self._generation)
         self._M = self._frame.canvas.create_text(808, 790, fill="white", font="Times 15 bold", text= self.Population.mutation_rate)
-        self._F = self._frame.canvas.create_text(808, 820, fill="white", font="Times 15 bold", text="224")
-        self._EP = self._frame.canvas.create_text(808, 850, fill="white", font="Times 15 bold", text="00")
+        self._F = self._frame.canvas.create_text(808, 820, fill="white", font="Times 15 bold", text="00:00:00")
+        self._EP = self._frame.canvas.create_text(808, 850, fill="white", font="Times 15 bold", text=CONST.EXTINGUISHING_PERIOD)
         self._GC = self._frame.canvas.create_text(1451, 730, fill="white", font="Times 15 bold", text="0")
 
 
@@ -93,7 +97,7 @@ class Blueprint:
         y = randint(CONST.FIRST_LANE, CONST.LAST_LANE)
 
         if self.count == CONST.OBJECT_CREATION_DELAY and self.obj_count < len(self._population):
-            obj[y].insert(len(obj[y]), Object(self._population[self.obj_count], self._frame, Type.CAR, -210,
+            obj[y].insert(len(obj[y]), Object(self._population[self.obj_count], self._frame, Type.CAR, -1810,
                               self.Yaxis(self.car_coordinates_list()[y][0], self.car_coordinates_list()[y][1]), 55,
                               17.5, "white", self.obj_count, y, self._cwd))
             self.obj_count += CONST.COUNT_INC
@@ -114,7 +118,7 @@ class Blueprint:
         for i in range(len(objects)):
             for j in range(len(objects[i])):
                 if objects[i][j].is_collide() is not True or objects[i][j].accelerate() >= 0:
-                    objects[i][j].move(objects[i], obj_count, popul_len, graph_delay)
+                    objects[i][j].move(objects[i], obj_count, popul_len, graph_delay, self._gen_file, self._generation)
 
     def draw(self):
         obj = []
@@ -175,17 +179,45 @@ class Blueprint:
     def reset(self, obj):
         self.move(obj, len(self._population), len(self._population), CONST.GRAPH_DELAY)
         self.destroy_obj(obj)
+
+        fitness_list = self.Population.Calc_Fitness(self._gen_file, self._generation)
+        avg_fitness = self.Population.get_average_fitness(fitness_list)
+        self._frame.canvas.itemconfig(self._F, text=str(avg_fitness))
+
+        # Write average fitness value to file
+        li = [str(avg_fitness), ",", str(self._generation), CONST.NEW_LINE]
+        stri = "".join(li)
+        fileio(self._gen_file + CONST.GENERATION_FITNESS_LOCATION + CONST.GENERATION_FITNESS_FILE_EXTENSION).write_file(stri)
+        fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).file_flush()
+        self.sort_date_in_file()
+        self._population = self.Population.next_generate(fitness_list)
+
+        #reset
         self._generation += CONST.COUNT_INC
         self._grace = False
-        self.count = 50
+        self.count = CONST.OBJECT_CREATION_DELAY
         self._frame.canvas.itemconfig(self._G, text=self._generation)
         self.Ep = CONST.EXTINGUISHING_PERIOD
         self._frame.canvas.itemconfig(self._EP, text=self.Ep)
-        self.Population.Calc_Fitness()
-        fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).file_flush()
-        self._population = self.Population.next_generate()
 
+    def sort_date_in_file(self):
+        file = fileio(self._gen_file + CONST.GENERATION_FITNESS_LOCATION + CONST.GENERATION_FITNESS_FILE_EXTENSION).read_file()
+        xs = []
+        for line in file.readlines():
+            if len(line) > 1:
+                line = line.strip()
+                x,y = line.split(',')
+                xs.insert(len(xs), (self.date_time(x) - self.date_time("00:00:00.000000")))
 
+        xs = sorted(xs)
+        fileio(self._gen_file + CONST.GENERATION_FITNESS_LOCATION_SORT + CONST.GENERATION_FITNESS_FILE_EXTENSION).file_flush()
+
+        for i in range(len(xs)):
+            fileio(self._gen_file + CONST.GENERATION_FITNESS_LOCATION_SORT + CONST.GENERATION_FITNESS_FILE_EXTENSION).write_file(str(xs[i])+","+str(i)+CONST.NEW_LINE)
+
+    @staticmethod
+    def date_time(date):
+        return datetime.datetime.strptime(date, "%H:%M:%S.%f")
 
 
 

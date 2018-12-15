@@ -20,7 +20,7 @@ class CONST:
     ROAD_LANE = 9
     UPDATE_FRAME_TIME_DELAY = 1
     DELAY_AFTER_ALL_POPULATION = 30
-    EXTINGUISHING_PERIOD = 300
+    EXTINGUISHING_PERIOD = 800
     GRAPH_DELAY = 150
     TRUE = 1
     FALSE = 0
@@ -33,8 +33,21 @@ class CONST:
     # string constants
     DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S.%f"
     NEW_LINE = "\n"
-    GRAPH_OUTPUT_LOCATION = '\Tools\GraphInput.txt'
-    FITNESS_OUTPUT_LOCATION = '\Tools\FitnessInput.txt'
+
+    GRAPH_OUTPUT_LOCATION = 'G'
+    GRAPH_OUTPUT_FILE_EXTENSION = '.txt'
+
+    FITNESS_OUTPUT_LOCATION = 'F'
+    FITNESS_OUTPUT_FILE_EXTENSION = '.txt'
+    FITNESS_OUTPUT_LOCATION_CACHE = '\Tools\FitnessInput.txt'
+
+    GENERATION_FITNESS_LOCATION = 'GenerationInput'
+    GENERATION_FITNESS_LOCATION_SORT = 'GenerationInputSort'
+    GENERATION_FITNESS_FILE_EXTENSION = '.txt'
+    GENERATION_FITNESS_LOCATION_CACHE = '\Tools\GenerationInputCache.txt'
+
+    DATA_LOCATION = r'\Data'
+    SLASH = "\\"
     FRAME_SIZE = "fullscreen"
     FULL_SCREEN = '-fullscreen'
     TITLE = "Self Driving Simulator"

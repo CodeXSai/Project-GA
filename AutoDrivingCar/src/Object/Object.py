@@ -1,5 +1,7 @@
 import datetime
 
+from sympy import Point
+
 from .Enum import *
 from Tools.fileio import fileio
 import itertools as IT
@@ -28,9 +30,11 @@ class Object:
         else:
             self._ratio = dna.ratio
 
-        self._Points = [(ObjPosX, ObjPosY), (ObjPosX + ObjLength, ObjPosY), (ObjPosX + ObjLength, ObjPosY + ObjWidth),
-                        (ObjPosX, ObjPosY + ObjWidth)]
+        self._Points = [(ObjPosX+210+400, ObjPosY), (ObjPosX+210+400 + ObjLength, ObjPosY), (ObjPosX+210+400 + ObjLength, ObjPosY + ObjWidth),
+                        (ObjPosX+210+400, ObjPosY + ObjWidth)]
         self._Shape = self._frame.canvas.create_polygon(self._Points, fill=SquareColour)
+        self._Point = [ObjPosX, ObjPosY, ObjPosX + ObjLength, ObjPosY, ObjPosX + ObjLength, ObjPosY + ObjWidth,
+                        ObjPosX, ObjPosY + ObjWidth]
         self.object_coords()
 
     def is_collide(self):
@@ -127,7 +131,7 @@ class Object:
     def border_check(self):
         return self._frame.canvas.coords(self._Shape)[0] > self._frame.root.winfo_screenwidth()
 
-    def move(self, obj, popul_created, total_popul, graph_delay):
+    def move(self, obj, popul_created, total_popul, graph_delay, file_location, gen_no):
         colour = self.fuzzy_logic(obj)  # Calling Fuzzy Logic
 
         if self.collide is True:
@@ -140,7 +144,7 @@ class Object:
             else:
                 self._dirFlag = 1
                 if self._accelerate > 0:
-                    self._accelerate -= CONST.ACCELERATION / 2
+                    self._accelerate -= CONST.ACCELERATION / 3
         elif colour is COLOUR.GREEN and self.collide is False:
             self._dirFlag = 2
         elif colour is COLOUR.RED and self.collide is False:
@@ -156,13 +160,14 @@ class Object:
             if self._accelerate < self._speed_limit:
                 self._accelerate += CONST.ACCELERATION
         self._frame.canvas.move(self._Shape, self._accelerate, 0)
+
         if self.border_check():
             self.changeCoords()
 
-        self.record_graph(colour, popul_created, total_popul, graph_delay)
+        self.record_graph(colour, popul_created, total_popul, graph_delay, file_location, gen_no)
 
     def object_coords(self):
-        self._Shape_coords = self._frame.canvas.coords(self._Shape)
+        self._Shape_coords = self._Point
 
     ###################################################   Fuzzy Logic   ####################################################
 
@@ -205,7 +210,7 @@ class Object:
                             colour = COLOUR.RED
 
                         elif self.front_back()[0][0] >= obj[i].front_back()[1][0] \
-                                and self.front_back()[1][0] <= obj[i].front_back()[1][0] and self.start_state:
+                                and self.front_back()[1][0] <= obj[i].front_back()[0][0] and self.start_state:
                             colour = COLOUR.BLUE
                             self._frame.canvas.itemconfig(self._Shape, fill=COLOUR.BLUE)
                             col_dist = 1000000000
@@ -234,38 +239,38 @@ class Object:
 
     #################################################   Fuzzy Logic End   ##################################################
 
-    def record_graph(self, colour, popul_created, total_popul, graph_delay):
+    def record_graph(self, colour, popul_created, total_popul, graph_delay, file_location, gen_no):
         if self.start_state is False:
             self.start_state = True
             l = [datetime.datetime.now().strftime(CONST.DATETIME_FORMAT), ",", str(self._accelerate), ",black", ",",
                  str(self.index), CONST.NEW_LINE]
             stri = "".join(l)
-            fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).write_file(stri)
+            fileio(file_location + CONST.GRAPH_OUTPUT_LOCATION + str(gen_no) + CONST.GRAPH_OUTPUT_FILE_EXTENSION).write_file(stri)
         elif colour is COLOUR.YELLOW:
             l = [datetime.datetime.now().strftime(CONST.DATETIME_FORMAT), ",", str(self._accelerate), ",y", ",",
                  str(self.index), CONST.NEW_LINE]
             stri = "".join(l)
-            fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).write_file(stri)
+            fileio(file_location + CONST.GRAPH_OUTPUT_LOCATION + str(gen_no) + CONST.GRAPH_OUTPUT_FILE_EXTENSION).write_file(stri)
         elif colour is COLOUR.GREEN:
             l = [datetime.datetime.now().strftime(CONST.DATETIME_FORMAT), ",", str(self._accelerate), ",g", ",",
                  str(self.index), CONST.NEW_LINE]
             stri = "".join(l)
-            fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).write_file(stri)
+            fileio(file_location + CONST.GRAPH_OUTPUT_LOCATION + str(gen_no) + CONST.GRAPH_OUTPUT_FILE_EXTENSION).write_file(stri)
         elif colour is COLOUR.RED:
             l = [datetime.datetime.now().strftime(CONST.DATETIME_FORMAT), ",", str(self._accelerate), ",r", ",",
                  str(self.index), CONST.NEW_LINE]
             stri = "".join(l)
-            fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).write_file(stri)
+            fileio(file_location + CONST.GRAPH_OUTPUT_LOCATION + str(gen_no) + CONST.GRAPH_OUTPUT_FILE_EXTENSION).write_file(stri)
         elif colour is COLOUR.BLUE:
             l = [datetime.datetime.now().strftime(CONST.DATETIME_FORMAT), ",", str(self._accelerate), ",blue", ",",
                  str(self.index), CONST.NEW_LINE]
             stri = "".join(l)
-            fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).write_file(stri)
+            fileio(file_location + CONST.GRAPH_OUTPUT_LOCATION + str(gen_no) + CONST.GRAPH_OUTPUT_FILE_EXTENSION).write_file(stri)
         elif popul_created is total_popul and graph_delay is CONST.GRAPH_DELAY:
             l = [datetime.datetime.now().strftime(CONST.DATETIME_FORMAT), ",", str(self._accelerate), ",orange", ",",
                  str(self.index), CONST.NEW_LINE]
             stri = "".join(l)
-            fileio(self._cwd + CONST.GRAPH_OUTPUT_LOCATION).write_file(stri)
+            fileio(file_location + CONST.GRAPH_OUTPUT_LOCATION + str(gen_no) + CONST.GRAPH_OUTPUT_FILE_EXTENSION).write_file(stri)
 
 
 

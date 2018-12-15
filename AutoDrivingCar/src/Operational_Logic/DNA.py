@@ -55,10 +55,10 @@ class DNA:
         except Exception as e:
             print(e)
 
-    def mutation(self, percentage):
-        if randint(0, 100) < percentage:
-            self._speed_limit = randint(5, 10)
-        elif randint(0, 100) < percentage:
+    def mutation(self):
+        if randint(0, 1) is 0:
+            self._speed_limit = randint(0, 20)
+        else:
             self._arc_radius = randint(100, 200)
 
 

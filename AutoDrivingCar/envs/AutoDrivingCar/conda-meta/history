@@ -62,3 +62,9 @@
 -defaults::wheel-0.32.2-py37_0
 +defaults::wheel-0.32.3-py37_0
 # update specs: ['wheel==0.32.3']
+==> 2018-12-14 03:15:04 <==
+# cmd: E:\Softwares\Anaconda\Scripts\conda install -p E:/Projects/Project-GA/AutoDrivingCar/envs/AutoDrivingCar certifi==2018.11.29 -y
+# conda version: 4.5.11
+-defaults::certifi-2018.10.15-py37_0
++defaults::certifi-2018.11.29-py37_0
+# update specs: ['certifi==2018.11.29']
