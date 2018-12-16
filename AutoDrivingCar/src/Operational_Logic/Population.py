@@ -59,8 +59,8 @@ class Population:
 
     def next_generate(self, lst):
         for i in range(len(self._population)):
-            parent1 = self._population[self.Pick_one(self._population, lst)]
-            parent2 = self._population[self.Pick_one(self._population, lst)]
+            parent1 = self._population[self.selection(self._population, lst)]
+            parent2 = self._population[self.selection(self._population, lst)]
             child = parent1.crossover(parent2)
             self._population[i] = child
         self.mutate(self._population, self.mutation_rate)
@@ -103,7 +103,7 @@ class Population:
     def getGeneration(self):
         print("")
 
-    def Pick_one(self, population, fitness_list):
+    def selection(self, population, fitness_list):
         score_fitness = fitness_list
         score_fitness.sort()
         while True:

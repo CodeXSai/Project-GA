@@ -14,7 +14,7 @@ class Blueprint:
 
     def __init__(self, cwd):
 
-        self.Population = Population(50, 1, cwd)
+        self.Population = Population(500, 1, cwd)
         self._population = self.Population.init_population()
 
         self._generation = CONST.INITIALIZE_ONE
