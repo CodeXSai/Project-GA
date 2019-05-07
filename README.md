@@ -1,5 +1,7 @@
 Experiment Details
- 
+
+Proper Documentation Link: https://github.com/5erpens/Project-GA/blob/master/Self-Driving%20Vehicles%20Artifical%20Intelligence%20Report.pdf
+
 Introduction
 This is the report on the artificial intelligence application which is programmed for self-driving vehicles. In this report, we go through the path I took to achieve the results which we are going to see. We also cover about the environment I built to perform this experiment, the constrain of the generations, the logic/algorithm we use to determine fitness function, about variations of the average fitness when we vary mutation rate and the results of the experiment.
 
